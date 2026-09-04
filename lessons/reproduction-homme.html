@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reproduction chez l'homme | YALUMY Learning</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">YALUMY <span>Learning</span></div>
+
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="index.html">Lessons</a>
+        <a href="../games/index.html">Games</a>
+        <a href="../flashcards/index.html">Flashcards</a>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-badge">BAC SCIENCES • SVT</div>
+
+      <h1>
+        Reproduction chez
+        <span>l'homme.</span>
+      </h1>
+
+      <p>
+        Understand spermatogenesis, male reproductive function,
+        hormones and hormonal regulation.
+      </p>
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn btn-primary">← Back to Lessons</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Choose how you want to learn</h2>
+        <p>Read and revise in the way that works best for you.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="#pdf">
+          <div class="card-icon">📄</div>
+          <h3>PDF Library</h3>
+          <p>Review the complete summary of reproduction chez l'homme.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="pdf">
+      <div class="section-title">
+        <h2>📄 PDF Library</h2>
+        <p>Essential files for your revision.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <div class="resource-icon">📘</div>
+
+          <div class="resource-text">
+            <h3>Résumé – L'homme</h3>
+            <p>Fiche de révision complète de SVT.</p>
+            <span class="resource-tag">SVT • PDF</span>
+          </div>
+        </div>
+
+        <a
+          class="resource-open"
+          href="../assets/pdfs/homme/resumer-l-homme.pdf"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open PDF →
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      YALUMY Learning — Learn visually. Understand deeply.
+    </footer>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("yalumy-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+      themeToggle.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("yalumy-theme", "dark");
+      } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("yalumy-theme", "light");
+      }
+    });
+  </script>
+</body>
+
+</html>
