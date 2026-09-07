@@ -1,8 +1,8 @@
 const presets = {
-  stress: { name: "Release tension · تخفيف التوتر", inhale: 4, hold: 2, exhale: 6, minutes: 5 },
-  fear: { name: "Find steadiness · استعادة الأمان", inhale: 3, hold: 1, exhale: 5, minutes: 3 },
-  anxiety: { name: "Slow the rush · تهدئة الاضطراب", inhale: 4, hold: 0, exhale: 6, minutes: 5 },
-  personal: { name: "Restore energy · استرجاع الطاقة", inhale: 4, hold: 2, exhale: 4, minutes: 5 }
+  stress: { name: 'Release tension · <span class="arabic-text">تخفيف التوتر</span>', inhale: 4, hold: 2, exhale: 6, minutes: 5 },
+  fear: { name: 'Find steadiness · <span class="arabic-text">استعادة الأمان</span>', inhale: 3, hold: 1, exhale: 5, minutes: 3 },
+  anxiety: { name: 'Slow the rush · <span class="arabic-text">تهدئة الاضطراب</span>', inhale: 4, hold: 0, exhale: 6, minutes: 5 },
+  personal: { name: 'Restore energy · <span class="arabic-text">استرجاع الطاقة</span>', inhale: 4, hold: 2, exhale: 4, minutes: 5 }
 };
 
 const circle = document.getElementById("breathCircle");
@@ -21,14 +21,14 @@ let audio;
 function formatTime(seconds) { return `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`; }
 function updatePreset(key) {
   preset = presets[key];
-  document.getElementById("presetLabel").textContent = preset.name;
+  document.getElementById("presetLabel").innerHTML = preset.name;
   document.getElementById("patternLabel").textContent = `Inhale ${preset.inhale} · ${preset.hold ? `Hold ${preset.hold} · ` : ""}Exhale ${preset.exhale}`;
   durationSelect.value = String(preset.minutes);
   resetSession();
 }
 function resetSession() {
   clearTimeout(timer); running = false; remaining = Number(durationSelect.value) * 60;
-  sessionTime.textContent = formatTime(remaining); sessionButton.textContent = "Begin · ابدأ";
+  sessionTime.textContent = formatTime(remaining); sessionButton.innerHTML = 'Begin · <span class="arabic-text">ابدأ</span>';
   circle.className = "breath-circle"; phaseText.textContent = "Ready"; phaseArabic.textContent = "جاهز"; phaseCount.textContent = "—";
 }
 function phase(label, arabic, seconds, className, next) {
@@ -47,14 +47,14 @@ function cycle() {
   phase("Inhale", "شهيق", preset.inhale, "inhale", () => preset.hold ? phase("Hold", "احبس بلطف", preset.hold, "hold", exhale) : exhale());
 }
 function exhale() { phase("Exhale", "زفير", preset.exhale, "exhale", cycle); }
-function finish() { clearTimeout(timer); running = false; circle.className = "breath-circle complete"; phaseText.textContent = "Well done"; phaseArabic.textContent = "أحسنت"; phaseCount.textContent = "✓"; sessionButton.textContent = "Again · مرة أخرى"; }
+function finish() { clearTimeout(timer); running = false; circle.className = "breath-circle complete"; phaseText.textContent = "Well done"; phaseArabic.textContent = "أحسنت"; phaseCount.textContent = "✓"; sessionButton.innerHTML = 'Again · <span class="arabic-text">مرة أخرى</span>'; }
 
 document.querySelectorAll(".feeling-card").forEach(button => button.addEventListener("click", () => {
   document.querySelectorAll(".feeling-card").forEach(item => { item.classList.toggle("active", item === button); item.setAttribute("aria-pressed", item === button); });
   updatePreset(button.dataset.preset);
 }));
 durationSelect.addEventListener("change", resetSession);
-sessionButton.addEventListener("click", () => { if (running) { resetSession(); return; } remaining = Number(durationSelect.value) * 60; running = true; sessionButton.textContent = "Pause · إيقاف"; cycle(); });
+sessionButton.addEventListener("click", () => { if (running) { resetSession(); return; } remaining = Number(durationSelect.value) * 60; running = true; sessionButton.innerHTML = 'Pause · <span class="arabic-text">إيقاف</span>'; cycle(); });
 
 document.querySelectorAll("[data-scene]").forEach(button => button.addEventListener("click", () => {
   document.body.className = `relax-body scene-${button.dataset.scene}`;
