@@ -16,21 +16,21 @@
 
   <main class="relax-shell">
     <section class="relax-intro">
-      <span class="eyebrow">Pause before you study · استراحة قبل الدراسة</span>
+      <span class="eyebrow">Pause before you study · <span class="arabic-text">استراحة قبل الدراسة</span></span>
       <h1>How are you feeling?</h1>
       <p>Choose what feels closest. We’ll set a gentle rhythm you can change at any time.</p>
       <div class="feeling-options" role="radiogroup" aria-label="Choose how you feel">
-        <button class="feeling-card active" type="button" data-preset="stress" aria-pressed="true"><span>〰</span><strong>Stress</strong><small>توتر</small></button>
-        <button class="feeling-card" type="button" data-preset="fear" aria-pressed="false"><span>◌</span><strong>Fear</strong><small>خوف</small></button>
-        <button class="feeling-card" type="button" data-preset="anxiety" aria-pressed="false"><span>≈</span><strong>Anxiety</strong><small>اضطراب</small></button>
-        <button class="feeling-card" type="button" data-preset="personal" aria-pressed="false"><span>✦</span><strong>Personalized</strong><small>مخصّص</small></button>
+        <button class="feeling-card active" type="button" data-preset="stress" aria-pressed="true"><span>〰</span><strong>Stress</strong><small class="arabic-text">توتر</small></button>
+        <button class="feeling-card" type="button" data-preset="fear" aria-pressed="false"><span>◌</span><strong>Fear</strong><small class="arabic-text">خوف</small></button>
+        <button class="feeling-card" type="button" data-preset="anxiety" aria-pressed="false"><span>≈</span><strong>Anxiety</strong><small class="arabic-text">اضطراب</small></button>
+        <button class="feeling-card" type="button" data-preset="personal" aria-pressed="false"><span>✦</span><strong>Personalized</strong><small class="arabic-text">مخصّص</small></button>
       </div>
     </section>
 
     <section class="breathing-studio" aria-label="Breathing timer">
       <div class="studio-topline">
-        <div><span class="studio-kicker" id="presetLabel">Release tension · تخفيف التوتر</span><p id="patternLabel">Inhale 4 · Hold 2 · Exhale 6</p></div>
-        <label class="duration-control">Session · المدة
+        <div><span class="studio-kicker" id="presetLabel">Release tension · <span class="arabic-text">تخفيف التوتر</span></span><p id="patternLabel">Inhale 4 · Hold 2 · Exhale 6</p></div>
+        <label class="duration-control">Session · <span class="arabic-text">المدة</span>
           <select id="durationSelect" aria-label="Session duration">
             <option value="2">2 min</option><option value="3">3 min</option><option value="5" selected>5 min</option><option value="7">7 min</option><option value="10">10 min</option><option value="15">15 min</option>
           </select>
@@ -38,16 +38,16 @@
       </div>
 
       <div class="breathing-stage">
-        <div class="breath-orbit"><div class="breath-circle" id="breathCircle"><span id="phaseText">Ready</span><small id="phaseArabic">جاهز</small><b id="phaseCount">—</b></div></div>
+        <div class="breath-orbit"><div class="breath-circle" id="breathCircle"><span id="phaseText">Ready</span><small class="arabic-text" id="phaseArabic">جاهز</small><b id="phaseCount">—</b></div></div>
         <div class="session-time" id="sessionTime">05:00</div>
-        <button class="session-button" id="sessionButton" type="button">Begin · ابدأ</button>
+        <button class="session-button" id="sessionButton" type="button">Begin · <span class="arabic-text">ابدأ</span></button>
       </div>
 
       <div class="studio-controls">
-        <fieldset><legend>Scene · الخلفية</legend><div class="segmented" id="sceneControls">
+        <fieldset><legend>Scene · <span class="arabic-text">الخلفية</span></legend><div class="segmented" id="sceneControls">
           <button class="active" type="button" data-scene="clean">Clean</button><button type="button" data-scene="dark">Dark</button><button type="button" data-scene="night">Night sky</button><button type="button" data-scene="nature">Nature</button>
         </div></fieldset>
-        <fieldset><legend>Sound · الصوت</legend><div class="segmented" id="soundControls">
+        <fieldset><legend>Sound · <span class="arabic-text">الصوت</span></legend><div class="segmented" id="soundControls">
           <button class="active" type="button" data-sound="off">Off</button><button type="button" data-sound="rain">Rain</button><button type="button" data-sound="lofi">Lofi</button>
         </div></fieldset>
       </div>
