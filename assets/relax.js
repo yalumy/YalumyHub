@@ -17,6 +17,10 @@ let running = false;
 let remaining = 300;
 let timer;
 let audio;
+const soundFiles = {
+  rain: "../assets/audio/calming-rain.mp3",
+  lofi: "../assets/audio/lofi-study-session.mp3"
+};
 
 function formatTime(seconds) { return `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`; }
 function updatePreset(key) {
@@ -61,19 +65,22 @@ document.querySelectorAll("[data-scene]").forEach(button => button.addEventListe
   document.querySelectorAll("[data-scene]").forEach(item => item.classList.toggle("active", item === button));
 }));
 
-function stopSound() { if (audio) { audio.close(); audio = null; } }
+function stopSound() {
+  if (!audio) return;
+  audio.pause();
+  audio.currentTime = 0;
+  audio = null;
+}
 function startSound(kind) {
   stopSound(); if (kind === "off") return;
-  audio = new (window.AudioContext || window.webkitAudioContext)();
-  const gain = audio.createGain(); gain.gain.value = kind === "rain" ? .055 : .04; gain.connect(audio.destination);
-  if (kind === "rain") {
-    const buffer = audio.createBuffer(1, audio.sampleRate * 3, audio.sampleRate); const data = buffer.getChannelData(0);
-    for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
-    const source = audio.createBufferSource(); const filter = audio.createBiquadFilter(); filter.type = "lowpass"; filter.frequency.value = 1500;
-    source.buffer = buffer; source.loop = true; source.connect(filter).connect(gain); source.start();
-  } else {
-    [196, 246.94, 293.66, 369.99].forEach((frequency, index) => { const oscillator = audio.createOscillator(); const toneGain = audio.createGain(); oscillator.type = "sine"; oscillator.frequency.value = frequency; toneGain.gain.value = .18 / (index + 1); oscillator.connect(toneGain).connect(gain); oscillator.start(); });
-  }
+  audio = new Audio(soundFiles[kind]);
+  audio.loop = true;
+  audio.preload = "auto";
+  audio.volume = kind === "rain" ? .34 : .27;
+  audio.play().catch(() => {
+    stopSound();
+    document.querySelectorAll("[data-sound]").forEach(item => item.classList.toggle("active", item.dataset.sound === "off"));
+  });
 }
 document.querySelectorAll("[data-sound]").forEach(button => button.addEventListener("click", () => {
   document.querySelectorAll("[data-sound]").forEach(item => item.classList.toggle("active", item === button)); startSound(button.dataset.sound);
