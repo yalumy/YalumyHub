@@ -81,12 +81,16 @@
     </section>
   </main>
 
-  <a class="floating-wellness" href="relax/index.html" aria-label="Open breathing space — افتح مساحة التنفس">
-    <span class="floating-wellness-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 21c4.4-2.2 7-5.8 7-10.2C19 6.5 16.2 3 12 3S5 6.5 5 10.8C5 15.2 7.6 18.8 12 21Z"/><path d="M8.5 12.5c1.2.7 2.4.9 3.5.9s2.3-.2 3.5-.9M9 9h.01M15 9h.01"/></svg>
-    </span>
-    <span class="floating-wellness-label"><strong>Breathe</strong><small class="arabic-text">تنفّس بهدوء</small></span>
-  </a>
+  <div class="yalumy-space" aria-label="Yalumy Space">
+    <div class="space-options">
+      <a href="focus/index.html"><span>◎</span><strong>Focus Room</strong><small>Study · Work · Create</small></a>
+      <a href="relax/index.html"><span>◌</span><strong>Breathe</strong><small class="arabic-text">تنفّس بهدوء</small></a>
+    </div>
+    <button class="floating-wellness" id="spaceToggle" type="button" aria-expanded="false" aria-label="Open Yalumy Space">
+      <span class="floating-wellness-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5M18 3v6M15 6h6"/></svg></span>
+      <span class="floating-wellness-label"><strong>Yalumy Space</strong><small>Focus · Breathe</small></span>
+    </button>
+  </div>
 
   <footer class="site-footer">
     <a class="brand footer-brand" href="index.html"><img src="assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a>
@@ -94,5 +98,6 @@
     <span>© 2026 YalumyHub</span>
   </footer>
   <script src="assets/site.js"></script>
+  <script>const spaceToggle=document.getElementById('spaceToggle');spaceToggle.addEventListener('click',()=>{const open=document.querySelector('.yalumy-space').classList.toggle('open');spaceToggle.setAttribute('aria-expanded',open)});</script>
 </body>
 </html>
