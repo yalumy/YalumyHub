@@ -306,6 +306,16 @@ body.dark textarea { color-scheme: dark; }
 @media (max-width: 860px) { .relax-shell { grid-template-columns: 1fr; }.breathing-stage { min-height: 370px; }.floating-wellness { bottom: 88px; }.studio-controls { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .relax-shell { width: min(94%,1180px); }.relax-intro,.breathing-studio { border-radius: 26px; }.feeling-options { grid-template-columns: 1fr 1fr; }.studio-topline { flex-direction: column; }.breath-orbit { width: 220px; height: 220px; }.floating-wellness { width: 78px; height: 78px; }.floating-wellness-icon { width: 48px; height: 48px; }.floating-wellness-label { display: none; } }
 
+/* Yalumy Space launcher */
+.yalumy-space { position: fixed; z-index: 18; right: clamp(18px,3vw,42px); bottom: clamp(22px,4vw,44px); }
+.yalumy-space .floating-wellness { position: relative; right: auto; bottom: auto; }
+.space-options { position: absolute; right: 0; bottom: calc(100% + 15px); width: 245px; display: grid; gap: 8px; opacity: 0; transform: translateY(12px) scale(.96); transform-origin: bottom right; pointer-events: none; transition: .28s ease; }
+.yalumy-space.open .space-options { opacity: 1; transform: none; pointer-events: auto; }
+.space-options a { display: grid; grid-template-columns: 40px 1fr; align-items: center; column-gap: 10px; padding: 13px; border: 1px solid var(--border); border-radius: 17px; color: var(--ink); background: var(--surface); box-shadow: var(--shadow); backdrop-filter: blur(18px); text-decoration: none; }
+.space-options a > span { grid-row: 1/3; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 13px; color: #fff; background: linear-gradient(145deg,var(--coral),var(--sage)); font-size: 1.3rem; }
+.space-options strong,.space-options small { display: block; }.space-options strong { font-size: .85rem; }.space-options small { color: var(--muted); font-size: .68rem; }
+body.dark .space-options a { background: rgba(24,34,49,.96); }
+
 /* Legacy learning pages — visually aligned without changing their routes or content */
 .container { width: min(1180px, 92%); margin-inline: auto; }
 .navbar { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
