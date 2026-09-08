@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A warm, customizable focus room for studying, working, reading and creating.">
+  <title>Focus Room — YalumyHub</title>
+  <link rel="icon" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../style.css?v=20260908-2">
+  <link rel="stylesheet" href="../assets/focus.css?v=20260908-1">
+</head>
+<body class="focus-body theme-library">
+  <header class="focus-header">
+    <a class="brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a>
+    <div class="header-actions"><button class="icon-btn" id="gentleBtn" type="button" aria-pressed="false" title="Gentle mode">◌</button><button class="icon-btn" id="fullscreenBtn" type="button" title="Fullscreen">⛶</button><a class="icon-btn close-btn" href="../index.html" aria-label="Back home">×</a></div>
+  </header>
+
+  <main class="focus-layout">
+    <aside class="setup-panel" id="setupPanel">
+      <div class="panel-heading"><span class="focus-kicker">YOUR FOCUS ROOM</span><h1>What will you make progress on?</h1></div>
+      <label class="field-label" for="goalInput">Today’s goal</label>
+      <input class="goal-input" id="goalInput" maxlength="90" placeholder="Finish one chapter, draft a page…">
+
+      <fieldset><legend>Mode</legend><div class="choice-grid modes" id="modeChoices">
+        <button class="choice active" data-mode="Study" type="button">📚<span>Study</span></button><button class="choice" data-mode="Work" type="button">💻<span>Work</span></button><button class="choice" data-mode="Read" type="button">📖<span>Read</span></button><button class="choice" data-mode="Create" type="button">✦<span>Create</span></button><button class="choice" data-mode="Write" type="button">✍️<span>Write</span></button><button class="choice" data-mode="Just focus" type="button">◎<span>Just focus</span></button>
+      </div></fieldset>
+
+      <fieldset><legend>Rhythm</legend><div class="preset-grid" id="presetChoices">
+        <button class="preset active" data-focus="25" data-break="5" type="button"><strong>25 · 5</strong><small>Classic</small></button><button class="preset" data-focus="50" data-break="10" type="button"><strong>50 · 10</strong><small>Deep</small></button><button class="preset" data-focus="90" data-break="15" type="button"><strong>90 · 15</strong><small>Long</small></button><button class="preset" data-focus="15" data-break="3" type="button"><strong>15 · 3</strong><small>Quick</small></button>
+      </div><div class="custom-time"><label>Focus <input id="focusMinutes" type="number" min="1" max="180" value="25"> min</label><label>Break <input id="breakMinutes" type="number" min="1" max="60" value="5"> min</label><label>Rounds <input id="roundsInput" type="number" min="1" max="12" value="4"></label></div></fieldset>
+
+      <button class="begin-btn" id="beginBtn" type="button">Enter focus room <span>→</span></button>
+    </aside>
+
+    <section class="focus-stage" aria-live="polite">
+      <div class="stage-top"><div><span class="session-state" id="sessionState">READY TO FOCUS</span><h2 id="goalDisplay">Choose one clear goal.</h2></div><div class="round-badge" id="roundBadge">Round 1 / 4</div></div>
+      <div class="timer-wrap"><svg class="timer-ring" viewBox="0 0 220 220" aria-hidden="true"><circle class="ring-base" cx="110" cy="110" r="96"/><circle class="ring-progress" id="ringProgress" cx="110" cy="110" r="96"/></svg><div class="timer-center"><span id="modeDisplay">Study</span><strong id="timerDisplay">25:00</strong><small id="timerHint">Set your room, then begin</small></div></div>
+      <div class="timer-actions"><button class="secondary-action" id="resetBtn" type="button">↺ Reset</button><button class="main-action" id="playBtn" type="button">▶ Start</button><button class="secondary-action" id="skipBtn" type="button">Skip →</button></div>
+      <div class="session-dots" id="sessionDots" aria-label="Round progress"></div>
+      <button class="distraction-trigger" id="distractionBtn" type="button">＋ Park a distracting thought</button>
+    </section>
+
+    <aside class="custom-panel">
+      <details open><summary>Scene</summary><div class="theme-grid" id="themeChoices"><button class="theme-chip active" data-theme="library" type="button"><i class="swatch library"></i>Library</button><button class="theme-chip" data-theme="night" type="button"><i class="swatch night"></i>Night</button><button class="theme-chip" data-theme="forest" type="button"><i class="swatch forest"></i>Forest</button><button class="theme-chip" data-theme="cafe" type="button"><i class="swatch cafe"></i>Café</button><button class="theme-chip" data-theme="ocean" type="button"><i class="swatch ocean"></i>Ocean</button><button class="theme-chip" data-theme="minimal" type="button"><i class="swatch minimal"></i>Minimal</button></div></details>
+      <details open><summary>Sound mixer</summary><div class="sound-mixer"><label><span>🌧 Rain</span><input data-sound="rain" type="range" min="0" max="100" value="0"></label><label><span>♫ Lofi</span><input data-sound="lofi" type="range" min="0" max="100" value="0"></label><label><span>〰 Brown noise</span><input data-sound="brown" type="range" min="0" max="100" value="0"></label><label><span>◌ White noise</span><input data-sound="white" type="range" min="0" max="100" value="0"></label></div></details>
+      <details open><summary>Focus friend</summary><div class="friend-grid" id="friendChoices"><button class="friend-choice active" data-friend="🐈" data-name="Milo" type="button">🐈<small>Milo</small></button><button class="friend-choice" data-friend="🦉" data-name="Ollie" type="button">🦉<small>Ollie</small></button><button class="friend-choice" data-friend="🦊" data-name="Lumi" type="button">🦊<small>Lumi</small></button><button class="friend-choice" data-friend="🤖" data-name="Novi" type="button">🤖<small>Novi</small></button><button class="friend-choice" data-friend="🌱" data-name="Sprout" type="button">🌱<small>Sprout</small></button><button class="friend-choice" data-friend="🐇" data-name="Pip" type="button">🐇<small>Pip</small></button></div><div class="friend-settings"><label>Language <select id="languageSelect"><option value="en">English</option><option value="ar">العربية</option><option value="fr">Français</option></select></label><label>Size <input id="friendSize" type="range" min="70" max="150" value="100"></label><label class="switch-line"><input id="messagesToggle" type="checkbox" checked> Encouragement</label></div></details>
+      <div class="progress-card"><span>YOUR GARDEN</span><div class="garden" id="garden"></div><p id="statsText">0 focused minutes · 0 day streak</p></div>
+    </aside>
+  </main>
+
+  <div class="focus-friend" id="focusFriend" tabindex="0" aria-label="Draggable focus friend"><div class="friend-message" id="friendMessage">I’ll stay with you.</div><div class="friend-character" id="friendCharacter">🐈</div><small id="friendName">Milo</small></div>
+
+  <dialog id="breakDialog"><div class="dialog-card"><span class="focus-kicker">GENTLE BREAK</span><h2 id="breakTitle">Give your eyes a rest.</h2><div class="break-visual" id="breakVisual">◉</div><p id="breakPrompt">Look at something far away for 20 seconds.</p><strong id="breakTimer">05:00</strong><div class="dialog-actions"><button id="breatheLink" type="button">60-second breathe</button><button class="main-action" id="endBreakBtn" type="button">Start next round</button></div></div></dialog>
+  <dialog id="thoughtDialog"><form class="dialog-card" method="dialog"><span class="focus-kicker">NOT FOR NOW</span><h2>Park the thought. Return to your focus.</h2><textarea id="thoughtInput" maxlength="180" placeholder="Write it here so your mind can let it go…"></textarea><div class="parked-list" id="parkedList"></div><div class="dialog-actions"><button value="cancel">Close</button><button class="main-action" id="saveThoughtBtn" value="default">Save thought</button></div></form></dialog>
+  <dialog id="finishDialog"><div class="dialog-card finish-card"><span class="focus-kicker">SESSION COMPLETE</span><div class="finish-mark">✦</div><h2>You showed up for your goal.</h2><p id="finishSummary"></p><div class="reflection"><span>How did it go?</span><button data-result="Completed">Completed</button><button data-result="Partly done">Partly done</button><button data-result="Continue later">Continue later</button></div><div class="mood-row"><span>After this session</span><button data-mood="calm">😌</button><button data-mood="good">🙂</button><button data-mood="tired">😮‍💨</button></div><div class="dialog-actions"><button id="shareBtn" type="button">Share progress</button><button class="main-action" id="newSessionBtn" type="button">New session</button></div></div></dialog>
+  <script src="../assets/focus.js?v=20260908-1"></script>
+</body>
+</html>
