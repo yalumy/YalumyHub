@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Flashcards — L’Homme | YalumyHub</title>
+  <link rel="icon" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .study-shell{max-width:820px;margin:auto}.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:0 0 24px}.filter{border:1px solid var(--border);background:var(--surface);color:var(--muted);padding:10px 14px;border-radius:999px;font-weight:750;cursor:pointer}.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .study-meta{display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:.9rem;margin:0 4px 12px}.progress-track{height:7px;background:var(--border);border-radius:10px;overflow:hidden;margin-bottom:18px}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#69c8bd);transition:width .25s}
+    .flashcard{min-height:370px;perspective:1200px;cursor:pointer}.flashcard-inner{position:relative;min-height:370px;transform-style:preserve-3d;transition:transform .55s}.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:42px;border:1px solid var(--border);border-radius:28px;background:var(--surface);box-shadow:var(--shadow);backface-visibility:hidden;-webkit-backface-visibility:hidden}.back{transform:rotateY(180deg)}.label{font-size:.75rem;font-weight:850;letter-spacing:.12em;color:var(--primary);margin-bottom:22px}.face h2{font-size:clamp(1.45rem,4vw,2.25rem);line-height:1.35}.face p{max-width:610px;color:var(--muted);line-height:1.7;margin-top:16px}.hint{position:absolute;bottom:20px;color:var(--muted);font-size:.78rem}.memory,.nav-controls{display:flex;justify-content:center;gap:11px;margin-top:18px}.study-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:12px 19px;border-radius:13px;font-weight:750;cursor:pointer;transition:.2s}.study-btn:hover{transform:translateY(-2px)}.review{color:#c56c00;background:rgba(255,170,70,.12)}.know,.primary{color:#fff;background:var(--primary);border-color:var(--primary)}.empty{display:none;text-align:center;color:var(--muted);padding:25px}
+    @media(max-width:600px){.flashcard,.flashcard-inner{min-height:410px}.face{padding:30px 22px}.memory,.nav-controls{flex-wrap:wrap}.nav-controls .study-btn{flex:1}.study-meta{font-size:.8rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">Yalumy<span>Hub</span></div>
+      <div class="nav-links"><a href="../index.html">Home</a><a href="../courses/index.html">Courses</a><a href="../lessons/reproduction-homme.html">L’Homme</a><button class="theme-toggle" id="themeToggle">🌙</button></div>
+    </nav>
+    <section class="hero">
+      <div class="hero-badge">L’HOMME • FLASHCARDS</div>
+      <h1>Observe. <span>Recall.</span> Master.</h1>
+      <p>Révise la spermatogenèse et sa régulation hormonale avec des cartes courtes et ciblées.</p>
+      <div style="margin-top:28px"><a class="btn btn-primary" href="../lessons/reproduction-homme.html">← Retour au cours</a></div>
+    </section>
+    <main class="section study-shell">
+      <div class="section-title"><h2>Choisis un thème</h2><p>Retourne la carte, puis indique si elle est acquise ou à revoir.</p></div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-cat="ALL">Toutes</button><button class="filter" data-cat="STRUCTURE">Structure du testicule</button><button class="filter" data-cat="SPERMATOGENESE">Spermatogenèse</button><button class="filter" data-cat="HORMONES">Hormones</button><button class="filter" data-cat="REGULATION">Régulation</button>
+      </div>
+      <div class="study-meta"><span id="progressText"></span><span id="scoreText"></span></div><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Retourner la carte">
+        <div class="flashcard-inner"><article class="face front"><div class="label" id="category"></div><h2 id="question"></h2><span class="hint">Clique pour voir la réponse ↻</span></article><article class="face back"><div class="label">RÉPONSE</div><h2 id="answer"></h2><p id="explanation"></p><span class="hint">Clique pour revenir ↻</span></article></div>
+      </div>
+      <div class="memory"><button class="study-btn review" id="review">↻ À revoir</button><button class="study-btn know" id="know">✓ Je sais</button></div>
+      <div class="nav-controls"><button class="study-btn" id="previous">← Précédente</button><button class="study-btn" id="shuffle">🔀 Mélanger</button><button class="study-btn primary" id="next">Suivante →</button></div>
+      <div class="empty" id="empty">Aucune carte dans ce thème.</div>
+    </main>
+    <footer>YalumyHub — Understand • Remember • Practice</footer>
+  </div>
+  <script>
+    const cards=[
+      ['STRUCTURE','Pourquoi le testicule est-il une glande mixte ?','Il possède une fonction exocrine et une fonction endocrine.','Les tubes séminifères produisent les spermatozoïdes, tandis que les cellules de Leydig libèrent la testostérone dans le sang.'],
+      ['STRUCTURE','Où se déroule la spermatogenèse ?','Dans les tubes séminifères.','Elle commence près de la paroi et progresse vers la lumière du tube.'],
+      ['STRUCTURE','Où se trouvent les cellules de Leydig ?','Dans le tissu interstitiel, entre les tubes séminifères.','Elles sont proches des capillaires sanguins car elles sécrètent une hormone dans le sang.'],
+      ['STRUCTURE','Quel est le rôle des cellules de Sertoli ?','Soutenir, protéger et nourrir les cellules germinales.','Sous l’action de la FSH, elles produisent aussi l’ABP et l’inhibine.'],
+      ['STRUCTURE','Quelle est la fonction exocrine du testicule ?','La production des spermatozoïdes.','Cette gamétogenèse assure la fertilité masculine.'],
+      ['STRUCTURE','Quelle est la fonction endocrine du testicule ?','La sécrétion de testostérone dans le sang.','Elle est réalisée par les cellules de Leydig.'],
+      ['SPERMATOGENESE','Quelles sont les quatre phases de la spermatogenèse ?','Multiplication, accroissement, maturation et différenciation.','La maturation correspond à la méiose et la différenciation à la spermiogenèse.'],
+      ['SPERMATOGENESE','Que se passe-t-il pendant la multiplication ?','Les spermatogonies effectuent des mitoses successives.','Cela maintient le stock cellulaire et produit des cellules destinées à poursuivre la spermatogenèse.'],
+      ['SPERMATOGENESE','Que devient la spermatogonie pendant l’accroissement ?','Un spermatocyte I.','Son volume cytoplasmique augmente avant la méiose.'],
+      ['SPERMATOGENESE','Que produit la première division méiotique ?','Deux spermatocytes II haploïdes à chromosomes entiers.','C’est la division réductionnelle : on passe de 2n à n.'],
+      ['SPERMATOGENESE','Que produit la deuxième division méiotique ?','Quatre spermatides haploïdes à chromosomes simples.','C’est la division équationnelle.'],
+      ['SPERMATOGENESE','Qu’est-ce que la spermiogenèse ?','La différenciation des spermatides en spermatozoïdes.','Elle ne modifie ni la ploïdie ni le nombre de chromosomes.'],
+      ['SPERMATOGENESE','Quel est le caryotype d’une spermatogonie humaine ?','2n = 46 : 44 autosomes + XY.','Ses chromosomes peuvent être simples ou entiers selon le moment du cycle cellulaire.'],
+      ['SPERMATOGENESE','Quel est le caryotype d’un spermatocyte I ?','2n = 46 chromosomes entiers : 44A + XY.','Il entre dans la première division de méiose.'],
+      ['SPERMATOGENESE','Quel est le caryotype d’un spermatocyte II ?','n = 23 chromosomes entiers : 22A + X ou 22A + Y.','Il est haploïde mais chaque chromosome possède encore deux chromatides.'],
+      ['SPERMATOGENESE','Quel est le caryotype d’une spermatide ou d’un spermatozoïde ?','n = 23 chromosomes simples : 22A + X ou 22A + Y.','Chaque chromosome ne possède plus qu’une chromatide.'],
+      ['HORMONES','Quelle hormone est sécrétée par l’hypothalamus ?','La GnRH.','Elle est libérée par pulses et stimule l’hypophyse.'],
+      ['HORMONES','Quelles hormones hypophysaires contrôlent le testicule ?','La FSH et la LH.','Ce sont les gonadostimulines hypophysaires.'],
+      ['HORMONES','Sur quelles cellules agit la LH ?','Sur les cellules de Leydig.','Elle stimule la production de testostérone.'],
+      ['HORMONES','Sur quelles cellules agit la FSH ?','Sur les cellules de Sertoli.','Elle favorise leur activité de soutien de la spermatogenèse.'],
+      ['HORMONES','Quel est le rôle de l’ABP ?','Fixer et concentrer la testostérone dans les tubes séminifères.','Produite par les cellules de Sertoli, elle permet une spermatogenèse complète.'],
+      ['HORMONES','Quels sont les grands effets de la testostérone ?','Elle complète la spermatogenèse et maintient les caractères sexuels secondaires.','Elle intervient aussi dans le rétrocontrôle de l’axe hormonal.'],
+      ['HORMONES','Quelle cellule sécrète l’inhibine ?','La cellule de Sertoli.','L’inhibine freine sélectivement la sécrétion de FSH.'],
+      ['REGULATION','Décris l’axe hypothalamo-hypophyso-testiculaire.','GnRH → FSH/LH → cellules de Sertoli/Leydig → spermatogenèse et testostérone.','Chaque étage stimule le suivant, tandis que les hormones testiculaires assurent les rétrocontrôles.'],
+      ['REGULATION','Comment la testostérone exerce-t-elle son rétrocontrôle ?','Elle freine l’hypothalamus et l’hypophyse.','C’est un rétrocontrôle négatif qui stabilise sa concentration sanguine.'],
+      ['REGULATION','Comment l’inhibine régule-t-elle l’axe hormonal ?','Elle inhibe surtout la sécrétion de FSH par l’hypophyse.','Elle ajuste ainsi l’activité des cellules de Sertoli et la spermatogenèse.'],
+      ['REGULATION','Pourquoi dit-on que la GnRH est pulsatile ?','Parce qu’elle est libérée par pulses successifs.','Cette sécrétion rythmique est nécessaire à une stimulation normale de l’hypophyse.'],
+      ['REGULATION','Quelles conditions permettent une spermatogenèse complète ?','L’action coordonnée de la FSH, de la testostérone et des cellules de Sertoli.','L’ABP maintient localement une forte concentration de testostérone.']
+    ].map(([category,question,answer,explanation])=>({category,question,answer,explanation}));
+    const labels={STRUCTURE:'STRUCTURE DU TESTICULE',SPERMATOGENESE:'SPERMATOGENÈSE',HORMONES:'HORMONES',REGULATION:'RÉGULATION HORMONALE'};
+    let filtered=[...cards],index=0,known=new Set(JSON.parse(localStorage.getItem('yalumy-homme-known')||'[]')),review=[];
+    const $=id=>document.getElementById(id),card=$('flashcard');
+    function key(c){return c.category+'|'+c.question} function save(){localStorage.setItem('yalumy-homme-known',JSON.stringify([...known]))}
+    function show(){if(!filtered.length)return;$('category').textContent=labels[filtered[index].category];$('question').textContent=filtered[index].question;$('answer').textContent=filtered[index].answer;$('explanation').textContent=filtered[index].explanation;$('progressText').textContent=`Carte ${index+1} / ${filtered.length}`;$('scoreText').textContent=`✓ ${known.size} acquises`;$('progressBar').style.width=`${((index+1)/filtered.length)*100}%`;card.classList.remove('flipped')}
+    function move(step){index=(index+step+filtered.length)%filtered.length;show()} card.onclick=()=>card.classList.toggle('flipped');card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click()}};
+    $('next').onclick=()=>move(1);$('previous').onclick=()=>move(-1);$('shuffle').onclick=()=>{filtered.sort(()=>Math.random()-.5);index=0;show()};
+    $('know').onclick=()=>{known.add(key(filtered[index]));review=review.filter(c=>c!==filtered[index]);save();move(1)};$('review').onclick=()=>{if(!review.includes(filtered[index]))review.push(filtered[index]);move(1)};
+    document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelector('.filter.active').classList.remove('active');b.classList.add('active');filtered=b.dataset.cat==='ALL'?[...cards]:cards.filter(c=>c.category===b.dataset.cat);index=0;show()});
+    const toggle=$('themeToggle'),saved=localStorage.getItem('yalumy-theme');if(saved==='dark'){document.body.classList.add('dark');toggle.textContent='☀️'}toggle.onclick=()=>{document.body.classList.toggle('dark');const dark=document.body.classList.contains('dark');toggle.textContent=dark?'☀️':'🌙';localStorage.setItem('yalumy-theme',dark?'dark':'light')};show();
+  </script>
+</body>
+</html>
