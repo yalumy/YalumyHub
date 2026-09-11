@@ -6,6 +6,13 @@
   direction: rtl;
 }
 
+/* Midnight identity — independently art-directed dark mode */
+body.dark{--paper:#071017;--ink:#F3F1E8;--muted:#A8B4B6;--surface:rgba(15,29,39,.92);--surface-solid:#101E28;--border:rgba(134,176,160,.19);--shadow:0 26px 74px rgba(0,0,0,.42);--olive:#8FC2A7;--coral:#F09B87;--cream:#172832}
+body.dark::after{background:radial-gradient(circle at 12% 0,rgba(42,112,92,.28),transparent 31%),radial-gradient(circle at 94% 16%,rgba(160,82,68,.17),transparent 26%),linear-gradient(155deg,#071017,#0B1720 52%,#071018)}
+body.dark .hero{background:radial-gradient(circle at 88% 10%,rgba(240,155,135,.12),transparent 27%),linear-gradient(140deg,#122630,#0B1720 62%,#10231f);border-color:rgba(143,194,167,.2)}
+body.dark .portal-card,body.dark .content-card,body.dark .card,body.dark .resource-card,body.dark .empty-state,body.dark .owner-copy{background:linear-gradient(145deg,#132630,#0D1B24);border-color:rgba(143,194,167,.17)}
+body.dark .courses-card{background:linear-gradient(145deg,#214338,#0D1B24 72%)}body.dark .podcasts-card{background:linear-gradient(145deg,#4A2C2D,#0D1B24 72%)}body.dark .study-space-card{background:linear-gradient(145deg,#173D3A,#0D1B24 72%)}body.dark .owner-card{background:linear-gradient(145deg,#3C3822,#0D1B24 72%)}
+
 :root {
   --sage: #99B4AA;
   --olive: #6B6D43;
@@ -133,10 +140,12 @@ h1, h2, h3 { letter-spacing: -.045em; }
 .section-heading h2 { margin-top: 14px; font-size: clamp(2.3rem, 5vw, 4.5rem); }
 .section-heading > p { margin-top: 15px; color: var(--muted); line-height: 1.75; }
 .portal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.portal-grid-four { grid-template-columns: repeat(2,1fr); }
 .portal-card { min-height: 330px; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 30px; overflow: hidden; border: 1px solid var(--border); border-radius: 28px; text-decoration: none; box-shadow: var(--shadow); transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease; }
 .portal-card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(75,71,55,.17); }
 .courses-card { background: linear-gradient(145deg, rgba(153,180,170,.52), var(--surface)); }
 .podcasts-card { background: linear-gradient(145deg, rgba(207,125,101,.42), var(--surface)); }
+.study-space-card { background: linear-gradient(145deg, rgba(125,163,149,.52), rgba(242,222,199,.42), var(--surface)); }
 .owner-card { background: linear-gradient(145deg, rgba(171,166,111,.49), var(--surface)); }
 .portal-number { color: var(--muted); font-size: .76rem; letter-spacing: .16em; }
 .line-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 21px; color: var(--olive); background: rgba(255,255,255,.48); transition: transform .4s ease; }
@@ -376,3 +385,10 @@ body.dark .space-options a { background: rgba(24,34,49,.96); }
 body.dark .podcast-feature { background: linear-gradient(135deg,rgba(95,58,54,.72),rgba(22,32,47,.97) 65%); border-color: rgba(205,217,226,.16); }
 body.dark .podcast-more { background: rgba(24,34,49,.88); }
 @media (max-width: 760px) { .podcast-feature { grid-template-columns: 1fr; border-radius: 28px; }.podcast-cover-wrap { width: min(100%,430px); margin-inline: auto; }.podcast-details { text-align: center; }.podcast-label { justify-content: center; }.podcast-details p { margin-inline: auto; }.podcast-watch { width: 100%; }.podcast-more { align-items: flex-start; flex-direction: column; } }
+
+/* Final dark-theme tokens intentionally come last. */
+body.dark{--paper:#071017;--ink:#F3F1E8;--muted:#A8B4B6;--surface:rgba(15,29,39,.92);--surface-solid:#101E28;--border:rgba(134,176,160,.19);--shadow:0 26px 74px rgba(0,0,0,.42);--olive:#8FC2A7;--coral:#F09B87;--cream:#172832}
+body.dark::after{background:radial-gradient(circle at 12% 0,rgba(42,112,92,.28),transparent 31%),radial-gradient(circle at 94% 16%,rgba(160,82,68,.17),transparent 26%),linear-gradient(155deg,#071017,#0B1720 52%,#071018)}
+body.dark .hero{background:radial-gradient(circle at 88% 10%,rgba(240,155,135,.12),transparent 27%),linear-gradient(140deg,#122630,#0B1720 62%,#10231f);border-color:rgba(143,194,167,.2)}
+body.dark .portal-card,body.dark .content-card,body.dark .card,body.dark .resource-card,body.dark .empty-state,body.dark .owner-copy{background:linear-gradient(145deg,#132630,#0D1B24);border-color:rgba(143,194,167,.17)}
+body.dark .courses-card{background:linear-gradient(145deg,#214338,#0D1B24 72%)}body.dark .podcasts-card{background:linear-gradient(145deg,#4A2C2D,#0D1B24 72%)}body.dark .study-space-card{background:linear-gradient(145deg,#173D3A,#0D1B24 72%)}body.dark .owner-card{background:linear-gradient(145deg,#3C3822,#0D1B24 72%)}
