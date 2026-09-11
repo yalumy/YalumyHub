@@ -9,7 +9,7 @@ const lessonKey=new URLSearchParams(location.search).get('lesson')||'homme';
 const lesson=lessons[lessonKey]||lessons.homme;
 const pages=document.getElementById('pages');
 const toast=document.getElementById('toast');
-const state={tool:'pen',color:'#dc756b',size:4,opacity:1,noteShape:'square',noteColor:'#fff0a8',scale:1.15,pdf:null,canvasStates:new Map(),dirty:false};
+const state={tool:'pen',color:'#dc756b',size:4,opacity:1,noteShape:'square',noteColor:'#fff0a8',zoom:1,baseScale:null,pdf:null,canvasStates:new Map(),dirty:false};
 
 document.getElementById('lessonTitle').textContent=lesson.title;
 document.title=lesson.title+' | YalumyHub';
@@ -28,9 +28,16 @@ async function render(){
   pages.innerHTML='';
   state.canvasStates.clear();
   state.pdf=state.pdf||await pdfjsLib.getDocument(lesson.pdf).promise;
+  if(!state.baseScale){
+    const sample=await state.pdf.getPage(1);
+    const natural=sample.getViewport({scale:1});
+    const available=document.querySelector('.lesson-stage').clientWidth-44;
+    state.baseScale=Math.min(1.15,available/natural.width);
+  }
+  const renderScale=state.baseScale*state.zoom;
   for(let number=1;number<=state.pdf.numPages;number++){
     const page=await state.pdf.getPage(number);
-    const view=page.getViewport({scale:state.scale});
+    const view=page.getViewport({scale:renderScale});
     const wrap=document.createElement('article');
     const base=document.createElement('canvas');
     const draw=document.createElement('canvas');
@@ -136,8 +143,8 @@ function save(silent=false){localStorage.setItem(storageKey(),JSON.stringify(col
 document.getElementById('save').onclick=()=>save();
 function restore(){try{const data=JSON.parse(localStorage.getItem(storageKey()));if(!data)return;document.querySelectorAll('.pdf-page').forEach((w,index)=>{const item=data[index];if(!item)return;const canvas=w.querySelector('.draw-layer'),ctx=canvas.getContext('2d'),image=new Image;image.onload=()=>{ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(image,0,0,canvas.width,canvas.height);ctx.restore()};image.src=item.drawing;(item.notes||[]).forEach(note=>addNote({clientX:0,clientY:0},canvas,index+1,note))});state.dirty=false}catch{notify('Saved notes could not be restored')}}
 
-async function changeZoom(amount){if(state.dirty)save(true);state.scale=Math.max(.65,Math.min(1.9,state.scale+amount));document.getElementById('zoomValue').textContent=Math.round(state.scale/1.15*100)+'%';await render()}
-document.getElementById('zoomIn').onclick=()=>changeZoom(.12);document.getElementById('zoomOut').onclick=()=>changeZoom(-.12);
+async function changeZoom(amount){if(state.dirty)save(true);state.zoom=Math.max(.65,Math.min(1.9,state.zoom+amount));document.getElementById('zoomValue').textContent=Math.round(state.zoom*100)+'%';await render()}
+document.getElementById('zoomIn').onclick=()=>changeZoom(.1);document.getElementById('zoomOut').onclick=()=>changeZoom(-.1);
 if(localStorage.getItem('yalumy-theme')==='dark')document.body.classList.add('dark');
 document.getElementById('theme').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('yalumy-theme',document.body.classList.contains('dark')?'dark':'light')};
 document.querySelectorAll('.difficulty button').forEach(b=>b.onclick=()=>document.querySelectorAll('.difficulty button').forEach(x=>x.classList.toggle('active',x===b)));
