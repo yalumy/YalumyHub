@@ -11,12 +11,12 @@
   </style>
 </head>
 <body><div class="container">
-  <nav class="navbar"><div class="logo">Yalumy<span>Hub</span></div><div class="nav-links"><a href="../index.html">Home</a><a href="../memory-map/index.html">Memory Map</a><a href="../courses/index.html">Courses</a><a href="../the-owner/index.html">The Owner</a><button class="theme-toggle" id="themeToggle">🌙</button></div></nav>
+  <nav class="navbar"><div class="logo">Yalumy <span>Hub</span></div><div class="nav-links"><a href="../index.html">Home</a><a href="../memory-map/index.html">Memory Map</a><a href="../courses/index.html">Courses</a><a href="../the-owner/index.html">The Owner</a><button class="theme-toggle" id="themeToggle">🌙</button></div></nav>
   <section class="hero"><div class="hero-badge">L'HOMME • QUIZ</div><h1>Test your <span>understanding.</span></h1><p>Réponds, vérifie immédiatement ta réponse et comprends l'explication.</p></section>
   <section class="section"><div class="quiz-container">
     <div id="quiz"><div class="quiz-top"><span id="questionNumber"></span><span id="scoreDisplay">Score : 0</span></div><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><div class="quiz-card"><span class="quiz-category" id="category"></span><h2 class="quiz-question" id="question"></h2><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div><button class="next-question" id="nextButton">Question suivante →</button></div></div>
     <div class="quiz-card result" id="result"><div class="hero-badge">QUIZ COMPLETE</div><h2>Ton résultat</h2><div class="result-score" id="finalScore"></div><p id="resultMessage"></p><button class="restart-btn" id="restartButton">↻ Recommencer</button></div>
-  </div></section><footer>YalumyHub — Understand • Remember • Practice</footer>
+  </div></section><footer>Yalumy Hub — Understand • Remember • Practice</footer>
 </div>
 <script>
 const questions=[
@@ -41,4 +41,5 @@ function render(){answered=false;const q=questions[current];qn.textContent=`Ques
 function choose(i,b){if(answered)return;answered=true;const q=questions[current],buttons=[...ans.children];buttons.forEach(x=>x.disabled=true);buttons[q.correct].classList.add('correct');if(i===q.correct){score++;b.classList.add('correct');fb.innerHTML=`<strong>✓ Bonne réponse !</strong>${q.explanation}`}else{b.classList.add('wrong');fb.innerHTML=`<strong>✗ Pas tout à fait.</strong>${q.explanation}`}sd.textContent=`Score : ${score}`;fb.style.display='block';next.textContent=current===questions.length-1?'Voir le résultat →':'Question suivante →';next.style.display='block';next.focus({preventScroll:true});pb.style.width=`${((current+1)/questions.length)*100}%`}
 next.onclick=()=>{current++;current<questions.length?render():finish()};function finish(){quiz.style.display='none';result.style.display='block';document.getElementById('finalScore').textContent=`${score} / ${questions.length}`;const p=score/questions.length;document.getElementById('resultMessage').textContent=p>=.85?'Excellent ! Tu maîtrises très bien le cours.':p>=.6?'Très bien ! Révise encore les points où tu as hésité.':'Reprends le PDF tranquillement puis retente le quiz.'}
 document.getElementById('restartButton').onclick=()=>{current=0;score=0;quiz.style.display='block';result.style.display='none';render()};const tt=document.getElementById('themeToggle');if(localStorage.getItem('yalumy-theme')==='dark'){document.body.classList.add('dark');tt.textContent='☀️'}tt.onclick=()=>{document.body.classList.toggle('dark');const d=document.body.classList.contains('dark');tt.textContent=d?'☀️':'🌙';localStorage.setItem('yalumy-theme',d?'dark':'light')};render();
-</script></body></html>
+</script><script src="../assets/site.js"></script>
+</body></html>

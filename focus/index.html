@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="A warm, customizable focus room for studying, working, reading and creating.">
-  <title>Focus Room — YalumyHub</title>
+  <title>Focus Room — Yalumy Hub</title>
   <link rel="icon" href="../assets/images/favicon.png">
   <link rel="stylesheet" href="../style.css?v=20260908-2">
   <link rel="stylesheet" href="../assets/focus.css?v=20260908-1">
 </head>
 <body class="focus-body theme-library">
   <header class="focus-header">
-    <a class="brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a>
+    <a class="brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy <span>Hub</span></span></a>
     <div class="header-actions"><button class="icon-btn" id="gentleBtn" type="button" aria-pressed="false" title="Gentle mode">◌</button><button class="icon-btn" id="fullscreenBtn" type="button" title="Fullscreen">⛶</button><a class="icon-btn close-btn" href="../index.html" aria-label="Back home">×</a></div>
   </header>
 
@@ -54,5 +54,6 @@
   <dialog id="thoughtDialog"><form class="dialog-card" method="dialog"><span class="focus-kicker">NOT FOR NOW</span><h2>Park the thought. Return to your focus.</h2><textarea id="thoughtInput" maxlength="180" placeholder="Write it here so your mind can let it go…"></textarea><div class="parked-list" id="parkedList"></div><div class="dialog-actions"><button value="cancel">Close</button><button class="main-action" id="saveThoughtBtn" value="default">Save thought</button></div></form></dialog>
   <dialog id="finishDialog"><div class="dialog-card finish-card"><span class="focus-kicker">SESSION COMPLETE</span><div class="finish-mark">✦</div><h2>You showed up for your goal.</h2><p id="finishSummary"></p><div class="reflection"><span>How did it go?</span><button data-result="Completed">Completed</button><button data-result="Partly done">Partly done</button><button data-result="Continue later">Continue later</button></div><div class="mood-row"><span>After this session</span><button data-mood="calm">😌</button><button data-mood="good">🙂</button><button data-mood="tired">😮‍💨</button></div><div class="dialog-actions"><button id="shareBtn" type="button">Share progress</button><button class="main-action" id="newSessionBtn" type="button">New session</button></div></div></dialog>
   <script src="../assets/focus.js?v=20260908-1"></script>
+<script src="../assets/site.js"></script>
 </body>
 </html>
