@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build your personal learning map and review every topic before it fades.">
+  <title>Memory Map — YalumyHub</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="stylesheet" href="../style.css?v=20260916-1">
+  <link rel="stylesheet" href="memory-map.css?v=20260916-1">
+</head>
+<body class="memory-body">
+  <header class="site-header memory-header">
+    <a class="brand" href="../index.html" aria-label="YalumyHub home"><img src="../assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a class="active" href="index.html">Memory Map</a><a href="../courses/index.html">Courses</a><a href="../the-owner/index.html">Behind Yalumy</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+  </header>
+
+  <main class="memory-shell">
+    <section class="memory-intro">
+      <div>
+        <span class="eyebrow">Your personal learning memory</span>
+        <h1>What should you<br><em>review today?</em></h1>
+        <p>Add the topics you are learning. Yalumy will show what is strong, what is fading, and what deserves your attention next.</p>
+      </div>
+      <button class="primary-action" id="addTopicTop" type="button"><span>＋</span> Add a topic</button>
+    </section>
+
+    <section class="memory-dashboard" aria-label="Memory overview">
+      <article class="readiness-card">
+        <div class="readiness-copy"><span class="card-label">MEMORY READINESS</span><strong id="readinessScore">0%</strong><p id="readinessMessage">Add your first topic to begin your map.</p></div>
+        <div class="readiness-ring" id="readinessRing" style="--score:0" aria-hidden="true"><span><img src="../assets/images/favicon.png" alt=""></span></div>
+      </article>
+      <article class="stat-card"><span class="status-dot urgent"></span><div><strong id="dueCount">0</strong><p>Due now</p></div></article>
+      <article class="stat-card"><span class="status-dot fading"></span><div><strong id="fadingCount">0</strong><p>Fading soon</p></div></article>
+      <article class="stat-card"><span class="status-dot strong"></span><div><strong id="strongCount">0</strong><p>Still strong</p></div></article>
+    </section>
+
+    <section class="review-plan" id="reviewPlan">
+      <div class="section-line">
+        <div><span class="card-label">YOUR NEXT BEST MOVE</span><h2>Review now</h2></div>
+        <div class="time-filter" role="group" aria-label="Available review time">
+          <button class="active" type="button" data-minutes="5">5 min</button><button type="button" data-minutes="15">15 min</button><button type="button" data-minutes="30">30 min</button><button type="button" data-minutes="60">1 hour</button>
+        </div>
+      </div>
+      <div class="review-queue" id="reviewQueue"></div>
+    </section>
+
+    <section class="map-section">
+      <div class="section-line">
+        <div><span class="card-label">ALL YOUR KNOWLEDGE</span><h2>Memory map</h2></div>
+        <div class="map-actions"><select id="subjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option></select><button class="secondary-action" id="addTopicButton" type="button">＋ Add topic</button></div>
+      </div>
+      <div class="map-legend" aria-label="Memory status legend"><span><i class="strong"></i>Strong</span><span><i class="fading"></i>Fading</span><span><i class="urgent"></i>Review now</span><span><i class="new"></i>Not reviewed</span></div>
+      <div class="topic-grid" id="topicGrid"></div>
+      <div class="empty-map" id="emptyMap">
+        <div class="empty-tree" aria-hidden="true"><img src="../assets/images/favicon.png" alt=""></div>
+        <h3>Your map is ready to grow.</h3><p>Add any subject you are learning—school, university, language, work or a personal skill.</p>
+        <button class="primary-action" id="emptyAddButton" type="button">Add your first topic</button>
+      </div>
+    </section>
+
+    <section class="exam-section">
+      <div><span class="card-label">OPTIONAL</span><h2>Preparing for an exam?</h2><p>Add a date and the map will prioritise weak topics as the deadline gets closer.</p></div>
+      <div class="exam-controls"><label>Exam date<input id="examDate" type="date"></label><button class="secondary-action" id="saveExam" type="button">Save date</button><button class="text-button" id="clearExam" type="button">Clear</button></div>
+      <p class="exam-note" id="examNote" aria-live="polite"></p>
+    </section>
+
+    <section class="data-section">
+      <div><h2>Your data stays with you.</h2><p>Memory Map stores everything on this device. Export a backup if you want to move it elsewhere.</p></div>
+      <div><button class="secondary-action" id="exportData" type="button">Export backup</button><label class="secondary-action file-button">Import backup<input id="importData" type="file" accept="application/json"></label></div>
+    </section>
+  </main>
+
+  <dialog id="topicDialog">
+    <form class="memory-dialog" id="topicForm" method="dialog">
+      <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+      <span class="card-label">GROW YOUR MAP</span><h2>Add a topic</h2><p>Use a clear name you will recognise when it is time to review.</p>
+      <label>Topic name<input id="topicName" required maxlength="80" placeholder="e.g. Hormonal regulation"></label>
+      <label>Subject or skill<input id="topicSubject" required maxlength="50" list="subjectSuggestions" placeholder="e.g. Biology"></label>
+      <datalist id="subjectSuggestions"><option>Biology</option><option>Mathematics</option><option>Languages</option><option>Programming</option><option>Law</option><option>Medicine</option><option>Quran</option><option>Professional training</option></datalist>
+      <div class="form-row"><label>Difficulty<select id="topicDifficulty"><option value="1">Easy</option><option value="2" selected>Medium</option><option value="3">Hard</option></select></label><label>Review time<select id="topicMinutes"><option value="5">5 minutes</option><option value="10" selected>10 minutes</option><option value="15">15 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></label></div>
+      <button class="primary-action wide" type="submit">Add to my map</button>
+    </form>
+  </dialog>
+
+  <dialog id="reviewDialog">
+    <form class="memory-dialog review-dialog" id="reviewForm" method="dialog">
+      <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+      <span class="card-label">QUICK MEMORY CHECK</span><h2 id="reviewTitle">Review topic</h2><p>Answer honestly. This is not a test—the map improves when your rating is accurate.</p>
+      <div class="check-list">
+        <fieldset><legend>Could you recall the main idea without opening your notes?</legend><div class="rating-row" data-field="recall"><button type="button" data-value="0">Not yet</button><button type="button" data-value="1">Partly</button><button type="button" data-value="2">Clearly</button></div></fieldset>
+        <fieldset><legend>Could you explain it in your own words?</legend><div class="rating-row" data-field="explain"><button type="button" data-value="0">Not yet</button><button type="button" data-value="1">Partly</button><button type="button" data-value="2">Clearly</button></div></fieldset>
+        <fieldset><legend>Could you apply it in a question or real task?</legend><div class="rating-row" data-field="apply"><button type="button" data-value="0">Not yet</button><button type="button" data-value="1">With help</button><button type="button" data-value="2">Alone</button></div></fieldset>
+      </div>
+      <button class="primary-action wide" id="saveReview" type="submit" disabled>Update my memory</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="site-footer"><a class="brand footer-brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a><p>Review before you forget.</p><span>© 2026 YalumyHub</span></footer>
+  <script src="../assets/site.js"></script>
+  <script src="memory-map.js?v=20260916-1"></script>
+</body>
+</html>
