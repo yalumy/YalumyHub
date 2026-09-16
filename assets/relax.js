@@ -1,8 +1,8 @@
 const presets = {
-  stress: { name: 'Release tension · <span class="arabic-text">تخفيف التوتر</span>', inhale: 4, hold: 2, exhale: 6, minutes: 5 },
-  fear: { name: 'Find steadiness · <span class="arabic-text">استعادة الأمان</span>', inhale: 3, hold: 1, exhale: 5, minutes: 3 },
-  anxiety: { name: 'Slow the rush · <span class="arabic-text">تهدئة الاضطراب</span>', inhale: 4, hold: 0, exhale: 6, minutes: 5 },
-  personal: { name: 'Restore energy · <span class="arabic-text">استرجاع الطاقة</span>', inhale: 4, hold: 2, exhale: 4, minutes: 5 }
+  stress: { name: 'Release tension', inhale: 4, hold: 2, exhale: 6, minutes: 5 },
+  fear: { name: 'Find steadiness', inhale: 3, hold: 1, exhale: 5, minutes: 3 },
+  anxiety: { name: 'Slow the rush', inhale: 4, hold: 0, exhale: 6, minutes: 5 },
+  personal: { name: 'Restore energy', inhale: 4, hold: 2, exhale: 4, minutes: 5 }
 };
 
 const circle = document.getElementById("breathCircle");
@@ -32,8 +32,8 @@ function updatePreset(key) {
 }
 function resetSession() {
   clearTimeout(timer); running = false; remaining = Number(durationSelect.value) * 60;
-  sessionTime.textContent = formatTime(remaining); sessionButton.innerHTML = 'Begin · <span class="arabic-text">ابدأ</span>';
-  circle.className = "breath-circle"; phaseText.textContent = "Ready"; phaseArabic.textContent = "جاهز"; phaseCount.textContent = "—";
+  sessionTime.textContent = formatTime(remaining); sessionButton.textContent = 'Begin';
+  circle.className = "breath-circle"; phaseText.textContent = "Ready"; phaseArabic.textContent = "Breathe gently"; phaseCount.textContent = "—";
 }
 function phase(label, arabic, seconds, className, next) {
   if (!running || remaining <= 0) return finish();
@@ -48,17 +48,17 @@ function phase(label, arabic, seconds, className, next) {
   timer = setTimeout(tick, 1000);
 }
 function cycle() {
-  phase("Inhale", "شهيق", preset.inhale, "inhale", () => preset.hold ? phase("Hold", "احبس بلطف", preset.hold, "hold", exhale) : exhale());
+  phase("Inhale", "Breathe in", preset.inhale, "inhale", () => preset.hold ? phase("Hold", "Hold gently", preset.hold, "hold", exhale) : exhale());
 }
-function exhale() { phase("Exhale", "زفير", preset.exhale, "exhale", cycle); }
-function finish() { clearTimeout(timer); running = false; circle.className = "breath-circle complete"; phaseText.textContent = "Well done"; phaseArabic.textContent = "أحسنت"; phaseCount.textContent = "✓"; sessionButton.innerHTML = 'Again · <span class="arabic-text">مرة أخرى</span>'; }
+function exhale() { phase("Exhale", "Breathe out", preset.exhale, "exhale", cycle); }
+function finish() { clearTimeout(timer); running = false; circle.className = "breath-circle complete"; phaseText.textContent = "Well done"; phaseArabic.textContent = "Session complete"; phaseCount.textContent = "✓"; sessionButton.textContent = 'Again'; }
 
 document.querySelectorAll(".feeling-card").forEach(button => button.addEventListener("click", () => {
   document.querySelectorAll(".feeling-card").forEach(item => { item.classList.toggle("active", item === button); item.setAttribute("aria-pressed", item === button); });
   updatePreset(button.dataset.preset);
 }));
 durationSelect.addEventListener("change", resetSession);
-sessionButton.addEventListener("click", () => { if (running) { resetSession(); return; } remaining = Number(durationSelect.value) * 60; running = true; sessionButton.innerHTML = 'Pause · <span class="arabic-text">إيقاف</span>'; cycle(); });
+sessionButton.addEventListener("click", () => { if (running) { resetSession(); return; } remaining = Number(durationSelect.value) * 60; running = true; sessionButton.textContent = 'Pause'; cycle(); });
 
 document.querySelectorAll("[data-scene]").forEach(button => button.addEventListener("click", () => {
   document.body.className = `relax-body scene-${button.dataset.scene}`;

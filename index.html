@@ -1,103 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Yalumy Memory Map helps you review what matters before you forget it.">
-  <title>YalumyHub — Review before you forget</title>
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="assets/images/favicon.png">
-  <link rel="stylesheet" href="style.css?v=20260908-4">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YalumyHub brings focused study, memory review and calm work tools into one thoughtful space.">
+  <meta name="theme-color" content="#7f123d"><title>YalumyHub — Make learning stay</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png"><link rel="apple-touch-icon" href="assets/images/favicon.png">
+  <link rel="preload" as="image" href="assets/images/study-workspace-hero.jpg"><link rel="stylesheet" href="style.css?v=20260916-1">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="YalumyHub home">
-      <img src="assets/images/favicon.png" alt="">
-      <span>Yalumy<span>Hub</span></span>
-    </a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="memory-map/index.html">Memory Map</a>
-      <a href="courses/index.html">Courses</a>
-      <a href="the-owner/index.html">Behind Yalumy</a>
+<body class="home-page berry-theme">
+  <aside class="dock" id="floatingDock" aria-label="Yalumy navigation">
+    <button class="dock-grip" id="dockGrip" type="button" aria-label="Drag navigation bar" title="Drag this bar"><span></span><span></span><span></span><span></span><span></span><span></span></button>
+    <a class="dock-brand" href="index.html" aria-label="YalumyHub home"><img src="assets/images/favicon.png" alt=""><strong>Yalumy</strong></a>
+    <nav class="dock-links" aria-label="Main navigation">
+      <a class="active" href="index.html"><span class="dock-icon" aria-hidden="true">⌂</span><span>Home</span></a>
+      <a href="memory-map/index.html"><span class="dock-icon" aria-hidden="true">◎</span><span>Memory Map</span></a>
+      <a href="courses/index.html"><span class="dock-icon" aria-hidden="true">▱</span><span>Courses</span></a>
+      <a href="focus/index.html"><span class="dock-icon" aria-hidden="true">◷</span><span>Focus</span></a>
+      <a href="relax/index.html"><span class="dock-icon" aria-hidden="true">◌</span><span>Breathe</span></a>
+      <a href="the-owner/index.html"><span class="dock-icon" aria-hidden="true">✦</span><span>Story</span></a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Switch color theme">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
-    </button>
-  </header>
+    <button class="dock-theme" id="themeToggle" type="button" aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+  </aside>
 
-  <main>
-    <section class="hero home-hero reveal">
-      <div class="hero-copy">
-        <span class="eyebrow">Your personal memory map</span>
-        <h1>Review before<br><em>you forget.</em></h1>
-        <p>See what is still strong, what is beginning to fade, and the one topic worth reviewing next. No accounts. No AI. Your learning stays on your device.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="memory-map/index.html">Open Memory Map <span>↗</span></a>
-          <a class="text-link" href="courses/index.html">Explore SVT courses <span>→</span></a>
-        </div>
-      </div>
-      <div class="hero-mark" aria-hidden="true">
-        <div class="mark-orbit orbit-one"></div>
-        <div class="mark-orbit orbit-two"></div>
-        <img src="assets/images/yalumy-mark-hq.png" alt="">
-        <span class="floating-dot dot-one"></span>
-        <span class="floating-dot dot-two"></span>
+  <main class="home-main">
+    <section class="editorial-hero reveal">
+      <div class="hero-image-panel" role="img" aria-label="A calm study and work desk with a notebook, laptop and headphones"><div class="hero-image-label"><span>01</span><strong>Study with intention</strong></div></div>
+      <div class="hero-content-panel">
+        <div class="hero-brandline"><img src="assets/images/yalumy-mark-hq.png" alt=""><span>YalumyHub</span></div>
+        <p class="hero-kicker">A better rhythm for learning</p><h1>Make space.<br><em>Make it stay.</em></h1>
+        <p class="hero-summary">Study, remember and reset in one calm digital place. Everything is designed to keep your next step clear and your attention where it matters.</p>
+        <div class="hero-actions"><a class="btn berry-button" href="memory-map/index.html">Open Memory Map <span>↗</span></a><a class="btn cream-button" href="focus/index.html">Start a focus session <span>→</span></a></div>
+        <div class="privacy-note"><span class="privacy-dot"></span><p><strong>Private by design.</strong> No account and no AI. Your learning data stays on your device.</p></div>
       </div>
     </section>
 
-    <section class="section reveal" id="explore">
-      <div class="section-heading">
-        <span class="eyebrow">Built around real progress</span>
-        <h2>Learn. Remember. Grow.</h2>
-        <p>Build a map for anything you are learning, then keep your strongest knowledge alive with short, well-timed reviews.</p>
-      </div>
-      <div class="portal-grid">
-        <a class="portal-card memory-card" href="memory-map/index.html">
-          <span class="portal-number">01</span>
-          <span class="line-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-3.4-7-10V5l7-2 7 2v6c0 6.6-7 10-7 10Z"/><path d="M8.5 12.5 11 15l4.5-6"/></svg></span>
-          <div><h3>Memory Map</h3><p>Track what is strong, catch what is fading, and know exactly what to review next.</p></div>
-          <span class="card-arrow">↗</span>
-        </a>
-        <a class="portal-card courses-card" href="courses/index.html">
-          <span class="portal-number">02</span>
-          <span class="line-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5zM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z"/></svg></span>
-          <div><h3>SVT Courses</h3><p>Keep access to the existing Bac Sciences lessons, flashcards and practice games.</p></div>
-          <span class="card-arrow">↗</span>
-        </a>
-        <a class="portal-card owner-card" href="the-owner/index.html">
-          <span class="portal-number">03</span>
-          <span class="line-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-3.4 7-10V5l-7-2-7 2v6c0 6.6 7 10 7 10Z"/><path d="M9 12l2 2 4-5"/></svg></span>
-          <div><h3>Behind Yalumy</h3><p>The vision, values and human story shaping YalumyHub.</p></div>
-          <span class="card-arrow">↗</span>
-        </a>
+    <section class="quick-section reveal" aria-labelledby="choose-space">
+      <div class="section-intro"><span class="section-index">02 / YOUR SPACE</span><h2 id="choose-space">What do you need right now?</h2><p>Move directly into the space that matches your next task.</p></div>
+      <div class="space-grid">
+        <a class="space-card plum-card" href="memory-map/index.html"><span class="card-topline"><b>Remember</b><i>01</i></span><span class="space-symbol">◎</span><div><h3>Memory Map</h3><p>See what is strong, catch what is fading, and review at the right time.</p></div><span class="space-action">Open the map <b>↗</b></span></a>
+        <a class="space-card lavender-card" href="focus/index.html"><span class="card-topline"><b>Focus</b><i>02</i></span><span class="space-symbol">◷</span><div><h3>Focus Room</h3><p>Set your rhythm, work in rounds and keep momentum without visual noise.</p></div><span class="space-action">Begin a session <b>↗</b></span></a>
+        <a class="space-card cream-card" href="courses/index.html"><span class="card-topline"><b>Learn</b><i>03</i></span><span class="space-symbol">▱</span><div><h3>Courses</h3><p>Access SVT lessons, flashcards and practice activities in one clear path.</p></div><span class="space-action">Browse courses <b>↗</b></span></a>
+        <a class="space-card moss-card" href="relax/index.html"><span class="card-topline"><b>Reset</b><i>04</i></span><span class="space-symbol">◌</span><div><h3>Breathe</h3><p>Slow down with a guided breathing session before returning to your work.</p></div><span class="space-action">Take a pause <b>↗</b></span></a>
       </div>
     </section>
 
-    <section class="manifesto reveal">
-      <img src="assets/images/favicon.png" alt="" aria-hidden="true">
-      <blockquote>“A short review today protects what you learned yesterday.”</blockquote>
-      <p>Build knowledge that stays with you.</p>
-    </section>
+    <section class="closing-panel reveal"><div><span class="section-index">03 / A SIMPLE PROMISE</span><blockquote>Small reviews.<br>Stronger memory.<br>Calmer progress.</blockquote></div><a href="the-owner/index.html">Discover the story behind Yalumy <span>→</span></a></section>
   </main>
-
-  <div class="yalumy-space" aria-label="Yalumy Space">
-    <div class="space-options">
-      <a href="focus/index.html"><span>◎</span><strong>Focus Room</strong><small>Study · Work · Create</small></a>
-      <a href="relax/index.html"><span>◌</span><strong>Breathe</strong><small class="arabic-text">تنفّس بهدوء</small></a>
-    </div>
-    <button class="floating-wellness" id="spaceToggle" type="button" aria-expanded="false" aria-label="Open Yalumy Space">
-      <span class="floating-wellness-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7a5 5 0 1 0 5 5M18 3v6M15 6h6"/></svg></span>
-      <span class="floating-wellness-label"><strong>Yalumy Space</strong><small>Focus · Breathe</small></span>
-    </button>
-  </div>
-
-  <footer class="site-footer">
-    <a class="brand footer-brand" href="index.html"><img src="assets/images/favicon.png" alt=""><span>Yalumy<span>Hub</span></span></a>
-    <p>Learn thoughtfully. Grow confidently.</p>
-    <span>© 2026 YalumyHub</span>
-  </footer>
+  <footer class="new-footer"><a class="brand" href="index.html"><img src="assets/images/favicon.png" alt=""><span>YalumyHub</span></a><p>Designed for thoughtful learning and focused work.</p><span>© 2026 YalumyHub</span></footer>
   <script src="assets/site.js"></script>
-  <script>const spaceToggle=document.getElementById('spaceToggle');spaceToggle.addEventListener('click',()=>{const open=document.querySelector('.yalumy-space').classList.toggle('open');spaceToggle.setAttribute('aria-expanded',open)});</script>
 </body>
 </html>
