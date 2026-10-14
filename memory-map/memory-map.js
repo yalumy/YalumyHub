@@ -105,12 +105,12 @@ $('topicForm').addEventListener('submit',event=>{
 document.querySelectorAll('.rating-row').forEach(row=>row.addEventListener('click',event=>{
   const button=event.target.closest('button');if(!button)return;
   row.querySelectorAll('button').forEach(b=>b.classList.toggle('selected',b===button));
-  reviewRatings[row.dataset.field]=+button.dataset.value;$('saveReview').disabled=Object.keys(reviewRatings).length<3;
+  reviewRatings[row.dataset.field]=+button.dataset.value;$('saveReview').disabled=Object.keys(reviewRatings).length<1;
 }));
 $('reviewForm').addEventListener('submit',event=>{
   event.preventDefault();if(Object.keys(reviewRatings).length<3)return;
   const topic=store.topics.find(t=>t.id===currentReviewId);if(!topic)return;
-  const score=reviewRatings.recall+reviewRatings.explain+reviewRatings.apply;
+  const score=reviewRatings.recall*3;
   topic.reviewCount=(topic.reviewCount||0)+1;topic.score=score;topic.lastReviewed=Date.now();topic.interval=intervalFor(score,topic.difficulty,topic.reviewCount);
   saveStore();closeDialog($('reviewDialog'));render();toast(score>=5?`Strong review — next check in ${topic.interval} days`:`Good check-in — review again in ${topic.interval} day${topic.interval===1?'':'s'}`);
 });

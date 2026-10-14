@@ -461,3 +461,43 @@ body.dark .hero{background:radial-gradient(circle at 88% 10%,rgba(240,155,135,.1
 body.dark .portal-card,body.dark .content-card,body.dark .card,body.dark .resource-card,body.dark .empty-state,body.dark .owner-copy{background:linear-gradient(145deg,#132630,#0D1B24);border-color:rgba(143,194,167,.17)}
 body.dark .courses-card{background:linear-gradient(145deg,#214338,#0D1B24 72%)}body.dark .owner-card{background:linear-gradient(145deg,#3C3822,#0D1B24 72%)}
 body.dark .memory-card{background:linear-gradient(145deg,#284e42,#0D1B24 72%)}
+
+
+/* Calm blue, sage and cream refresh — October 2026 */
+body.home-page.calm-theme, body.unified-page:not(.home-page) {
+  --paper:#F5F8F6; --ink:#25343A; --text:#25343A; --muted:#687B80;
+  --surface:rgba(255,255,255,.88); --surface-solid:#FFFFFF;
+  --border:rgba(72,116,125,.17); --shadow:0 22px 62px rgba(55,91,103,.10);
+  --primary:#5E8495; --primary-soft:rgba(94,132,149,.12);
+  --olive:#527E79; --coral:#D38B72; --sage:#A8C7BD; --cream:#F6EBDD;
+}
+body.home-page.calm-theme::after {
+  background:radial-gradient(circle at 8% 5%,rgba(168,199,189,.35),transparent 30%),
+    radial-gradient(circle at 92% 15%,rgba(211,139,114,.16),transparent 28%),
+    linear-gradient(150deg,#F7FAF8,#EEF5F4 55%,#FBF5ED);
+}
+body.unified-page:not(.home-page)::after {
+  background:radial-gradient(circle at 8% 8%,rgba(168,199,189,.28),transparent 28%),
+    radial-gradient(circle at 92% 18%,rgba(211,139,114,.18),transparent 30%),
+    linear-gradient(145deg,#F7FAF8,#EEF5F4 58%,#FBF5ED);
+}
+body.unified-page:not(.home-page) {--olive:#527E79;--coral:#D38B72;--sage:#A8C7BD;--cream:#F6EBDD;--primary:#527E79;--primary-soft:rgba(82,126,121,.12)}
+body.unified-page:not(.home-page)::before {opacity:.04;background-image:url("assets/images/favicon.png");background-size:88px 88px;mix-blend-mode:multiply}
+body.unified-page:not(.home-page) .btn-primary,
+body.unified-page:not(.home-page) .primary-action,
+body.unified-page:not(.home-page) .begin-btn,
+body.unified-page:not(.home-page) .main-action,
+body.unified-page:not(.home-page) .session-button,
+body.unified-page:not(.home-page) .next-question,
+body.unified-page:not(.home-page) .restart-btn {background:#527E79!important;border-color:#527E79!important;box-shadow:0 12px 25px rgba(82,126,121,.18)!important}
+body.unified-page:not(.home-page) .hero:not(.editorial-hero) {background:linear-gradient(100deg,rgba(248,251,249,.98),rgba(248,251,249,.89) 56%,rgba(168,199,189,.22)),url("assets/images/study-workspace-hero.jpg") right center/58% auto no-repeat;box-shadow:0 30px 75px rgba(55,91,103,.11)}
+body.unified-page:not(.home-page) .hero:not(.editorial-hero) h1 em,
+body.unified-page:not(.home-page) .hero:not(.editorial-hero) h1 span {color:#527E79}
+body.unified-page:not(.home-page) .memory-intro {background:linear-gradient(105deg,rgba(248,251,249,.97),rgba(248,251,249,.9)),url("assets/images/study-workspace-hero.jpg") right center/48% auto no-repeat}
+body.unified-page:not(.home-page).dark {--paper:#101C22;--ink:#F1F5F2;--text:#F1F5F2;--muted:#B5C4C6;--surface:rgba(25,42,48,.92);--surface-solid:#192A30;--border:rgba(168,199,189,.18);--primary:#A8C7BD;--olive:#A8C7BD;--coral:#E2A48B;--sage:#83B3A7;--cream:#263B40;background:#101C22;color:#F1F5F2}
+body.unified-page:not(.home-page).dark::after {background:radial-gradient(circle at 8% 8%,rgba(64,112,103,.3),transparent 28%),radial-gradient(circle at 92% 18%,rgba(181,125,102,.14),transparent 30%),linear-gradient(145deg,#101C22,#17292E 58%,#10191F)}
+body.unified-page:not(.home-page).dark .hero:not(.editorial-hero) {background:linear-gradient(100deg,rgba(20,35,41,.98),rgba(20,35,41,.9) 58%,rgba(82,126,121,.22)),url("assets/images/study-workspace-hero.jpg") right center/58% auto no-repeat}
+.podcast-card {background:linear-gradient(145deg,rgba(213,226,239,.86),rgba(255,255,255,.92))!important}
+.space-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
+.podcast-card .space-symbol {color:#5E8495}
+@media(max-width:760px){.space-grid{grid-template-columns:1fr}.dock-links a{min-width:42px}.dock-links a span:last-child{font-size:.58rem}}

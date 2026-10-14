@@ -15,11 +15,12 @@ document.body.classList.add("unified-page");
 if (!document.getElementById("floatingDock")) {
   const pagePath = window.location.pathname;
   const root = pagePath.endsWith("/YalumyHub/") || pagePath === "/" ? "" : "../";
-  const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
+  const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("podcast") ? "podcast" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
   const items = [
     ["home", `${root}index.html`, "⌂", "Home"],
     ["memory", `${root}memory-map/index.html`, "◎", "Memory Map"],
     ["courses", `${root}courses/index.html`, "▱", "Courses"],
+    ["podcast", `${root}podcast/index.html`, "♫", "Podcast"],
     ["focus", `${root}focus/index.html`, "◷", "Focus"],
     ["breathe", `${root}relax/index.html`, "◌", "Breathe"],
     ["story", `${root}the-owner/index.html`, "✦", "Story"]
