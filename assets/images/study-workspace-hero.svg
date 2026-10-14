@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" fill="none">
+<defs>
+ <linearGradient id="bg" x1="80" y1="30" x2="1120" y2="970" gradientUnits="userSpaceOnUse"><stop stop-color="#E7F1EC"/><stop offset=".56" stop-color="#F7F4EA"/><stop offset="1" stop-color="#DCE8F2"/></linearGradient>
+ <linearGradient id="desk" x1="70" y1="650" x2="1130" y2="1000" gradientUnits="userSpaceOnUse"><stop stop-color="#E8D7C2"/><stop offset="1" stop-color="#D1BDA6"/></linearGradient>
+ <linearGradient id="screen" x1="480" y1="390" x2="800" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#B9D5CE"/><stop offset="1" stop-color="#86AFA7"/></linearGradient>
+ <filter id="shadow" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20"/></filter>
+</defs>
+<rect width="1200" height="1000" rx="36" fill="url(#bg)"/>
+<circle cx="965" cy="180" r="125" fill="#F0D5C5" opacity=".7"/>
+<circle cx="180" cy="210" r="110" fill="#B8D5C8" opacity=".68"/>
+<path d="M0 570C170 515 305 585 463 550C668 505 831 542 1200 460V1000H0V570Z" fill="#F9F7EF" opacity=".74"/>
+<ellipse cx="603" cy="815" rx="440" ry="76" fill="#718780" opacity=".15" filter="url(#shadow)"/>
+<!-- plant -->
+<path d="M145 594L157 388" stroke="#5B8B76" stroke-width="12" stroke-linecap="round"/>
+<path d="M155 455C85 444 69 390 79 346C128 359 167 399 155 455Z" fill="#83B59B"/>
+<path d="M157 414C190 349 241 344 273 360C254 415 205 440 157 414Z" fill="#A8CDB8"/>
+<path d="M151 506C93 504 57 466 55 431C109 431 149 461 151 506Z" fill="#6E9D83"/>
+<path d="M150 389C142 335 166 289 205 270C223 326 196 368 150 389Z" fill="#9AC6AD"/>
+<path d="M105 589H204L190 690H119L105 589Z" fill="#D99D83"/>
+<path d="M105 589H204L198 610H111L105 589Z" fill="#E8B39C"/>
+<!-- notebook -->
+<g transform="rotate(-7 360 735)">
+ <rect x="205" y="598" width="330" height="260" rx="18" fill="#A5BDB2" opacity=".35"/>
+ <rect x="190" y="585" width="330" height="260" rx="18" fill="#FCFAF4" stroke="#D7D9CF" stroke-width="3"/>
+ <path d="M225 645H470M225 690H470M225 735H470M225 780H420" stroke="#D5E2DC" stroke-width="4" stroke-linecap="round"/>
+ <path d="M223 624H330" stroke="#5C8E82" stroke-width="9" stroke-linecap="round"/>
+ <path d="M200 585V845" stroke="#D5D8CF" stroke-width="3"/>
+</g>
+<!-- laptop -->
+<g>
+ <rect x="470" y="345" width="370" height="290" rx="22" fill="#7F9994"/>
+ <rect x="487" y="362" width="336" height="253" rx="12" fill="#F7F5ED"/>
+ <rect x="505" y="381" width="300" height="215" rx="9" fill="url(#screen)"/>
+ <circle cx="655" cy="489" r="64" fill="#F8F5E9" opacity=".88"/>
+ <path d="M615 492C615 466 632 449 655 449C678 449 695 466 695 492" stroke="#6C9B8A" stroke-width="9" stroke-linecap="round"/>
+ <path d="M634 503L650 519L679 484" stroke="#6C9B8A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M438 635H871L925 677C929 683 922 692 911 692H396C384 692 378 684 385 677L438 635Z" fill="#D4DCD5"/>
+ <path d="M573 650H734L747 668H558L573 650Z" fill="#AABCB5"/>
+</g>
+<!-- coffee -->
+<ellipse cx="927" cy="777" rx="80" ry="18" fill="#AFA18F" opacity=".22"/>
+<path d="M867 700H980L968 807C965 826 950 838 931 838H916C897 838 882 826 879 807L867 700Z" fill="#E7B7A0"/>
+<path d="M978 720C1026 711 1041 737 1028 770C1019 792 994 798 973 787" stroke="#D99C83" stroke-width="17" stroke-linecap="round"/>
+<ellipse cx="923" cy="700" rx="56" ry="13" fill="#F4D3C2"/>
+<ellipse cx="923" cy="700" rx="43" ry="8" fill="#8C7667"/>
+<!-- pencil and small leaf -->
+<path d="M284 872L460 832" stroke="#C77F68" stroke-width="12" stroke-linecap="round"/>
+<path d="M454 833L474 829L462 846Z" fill="#D9B47E"/>
+<path d="M1015 567C1057 526 1102 541 1119 569C1081 597 1046 594 1015 567Z" fill="#A8CDB9"/>
+<path d="M1015 567L1108 555" stroke="#6E9D83" stroke-width="4" stroke-linecap="round"/>
+<circle cx="1038" cy="468" r="7" fill="#D58F78"/><circle cx="1064" cy="445" r="4" fill="#8EB6A3"/><circle cx="1092" cy="480" r="6" fill="#8DAFCB"/>
+<text x="600" y="934" fill="#496D67" font-family="Arial,sans-serif" font-size="22" letter-spacing="6" text-anchor="middle">MAKE SPACE. MAKE IT STAY.</text>
+</svg>
