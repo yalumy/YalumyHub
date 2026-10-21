@@ -165,6 +165,11 @@ document.head.appendChild(languageStyle);
   updateMarkTheme();
   new MutationObserver(updateMarkTheme).observe(document.body,{attributes:true,attributeFilter:["class"]});
   let artwork="";
+  if(/^index\\.html$/.test(sitePath)||sitePath==="")artwork="assets/images/hero/study-hero.svg";
+  else if(/^podcast\\/(?:index\\.html|mini-pod\\/index\\.html)$/.test(sitePath))artwork="assets/images/podcast/podcast-studio.svg";
+  else if(/^focus\\/index\\.html$/.test(sitePath))artwork="assets/images/tools/focus-room.svg";
+  else if(/^relax\\/index\\.html$/.test(sitePath))artwork="assets/images/tools/breathe-room.svg";
+
   if(/^games\\/(?:homme-quiz|homme-match)\\.html$/.test(sitePath))artwork="assets/images/lessons/homme.svg";
   else if(/^games\\/(?:femme-quiz|femme-match)\\.html$/.test(sitePath))artwork="assets/images/lessons/femme.svg";
   else if(/^games\\/(?:9bal-el-bac-quiz|9bal-el-bac-match)\\.html$/.test(sitePath))artwork="assets/images/tools/educational-games.svg";
