@@ -14,7 +14,12 @@ if (themeToggle) {
 document.body.classList.add("unified-page");
 if (!document.getElementById("floatingDock")) {
   const pagePath = window.location.pathname;
-  const root = pagePath.endsWith("/YalumyHub/") || pagePath === "/" ? "" : "../";
+  const normalizedPath = pagePath.replace(/\\/g, "/");
+  const baseIndex = normalizedPath.indexOf("/YalumyHub/");
+  const sitePath = baseIndex >= 0 ? normalizedPath.slice(baseIndex + "/YalumyHub/".length) : normalizedPath.replace(/^\\/+/, "");
+  const directoryPath = sitePath.endsWith("/") ? sitePath : sitePath.slice(0, Math.max(0, sitePath.lastIndexOf("/") + 1));
+  const depth = directoryPath.split("/").filter(Boolean).length;
+  const root = depth === 0 ? "" : "../".repeat(depth);
   const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("podcast") ? "podcast" : pagePath.includes("/shop") ? "shop" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
   const items = [
     ["home", `${root}index.html`, "⌂", "Home"],
