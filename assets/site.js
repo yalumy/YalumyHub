@@ -151,7 +151,7 @@ document.head.appendChild(languageStyle);
   document.querySelectorAll("img[src]").forEach(img=>{
     img.src=img.getAttribute("src").replace(/assets\\/images\\/favicon\\.png$/,"assets/images/brand/mark.svg");
   });
-  document.querySelectorAll('link[rel="icon"],link[rel="apple-touch-icon"]').forEach(link=>{
+  document.querySelectorAll('link[rel="icon"]').forEach(link=>{
     const href=link.getAttribute("href")||"";
     if(/assets\\/images\\/favicon\\.png$/.test(href))link.href=href.replace(/assets\\/images\\/favicon\\.png$/,"assets/images/brand/mark.svg");
   });
