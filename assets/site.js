@@ -171,7 +171,7 @@ document.head.appendChild(languageStyle);
   let artwork="";
   let artworkAlt="";
   if(/^index\\.html$/.test(sitePath)||sitePath===""){artwork="assets/images/hero/study-desk-photo.webp";artworkAlt="A calm study desk with books and a notebook";}
-  else if(/^the-owner\\/index\\.html$/.test(sitePath)){artwork="assets/images/brand/our-story.svg";artworkAlt="YalumyHub blossom and open-book emblem";}
+  else if(/^the-owner\\/index\\.html$/.test(sitePath)){artwork="assets/images/story/yalumy-story.svg";artworkAlt="A blossom and open book symbolizing learning and growth";}
   else if(/^courses\\/(?:index\\.html|svt-bac-sciences-experimentales\\.html)$/.test(sitePath)){artwork="assets/images/courses/biology-books-photo.webp";artworkAlt="Biology books arranged for a study session";}
   else if(/^lessons\\/reproduction-homme\\.html$/.test(sitePath)){artwork="assets/images/lessons/homme-photo.webp";artworkAlt="Educational illustration for the lesson on male reproduction";}
   else if(/^lessons\\/reproduction-femme\\.html$/.test(sitePath)){artwork="assets/images/lessons/femme.svg";artworkAlt="Educational diagram for the lesson on female reproduction";}
