@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Discover digital learning resources and handmade creations from YalumyHub.">
+<meta name="theme-color" content="#b7193f">
+<title>Shop | YalumyHub</title>
+<link rel="icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../style.css?v=cherry-20261021">
+<link rel="stylesheet" href="../assets/redesign.css?v=cherry-20261021">
+<style>
+.shop-wrap{max-width:1160px;margin:0 auto;padding:36px 22px 90px}
+.shop-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:clamp(26px,5vw,58px);border:1px solid rgba(183,25,63,.16);border-radius:30px;background:linear-gradient(125deg,#f9dfe6,#fffaf8 65%,#fff0e7);color:#42111f}
+.shop-hero h1{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.02;letter-spacing:-.045em;margin:14px 0}
+.shop-hero h1 em{color:#b7193f;font-style:normal}
+.shop-hero p{max-width:600px;line-height:1.8;color:#79515c}
+.shop-hero-art{min-height:210px;border-radius:24px;background:linear-gradient(135deg,rgba(183,25,63,.08),rgba(255,255,255,.2)),url('../assets/images/study-workspace-hero.svg') center/cover;box-shadow:0 18px 42px rgba(100,20,43,.12)}
+.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:36px 0 18px;flex-wrap:wrap}
+.shop-filters{display:flex;gap:8px;flex-wrap:wrap}
+.shop-filter,.cart-toggle{border:1px solid rgba(183,25,63,.2);border-radius:999px;background:rgba(255,255,255,.82);padding:10px 16px;color:#6b263b;cursor:pointer;font:inherit}
+.shop-filter.active,.cart-toggle{background:#b7193f;color:white;border-color:#b7193f}
+.shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.product-card{overflow:hidden;border:1px solid var(--border);border-radius:22px;background:var(--surface-solid);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.product-art{height:190px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#fde7ec,#fff5ef);color:#a7193f;position:relative}
+.product-art svg{width:76px;height:76px;stroke:currentColor;fill:none;stroke-width:1.25}
+.product-art .product-kind{position:absolute;top:14px;left:14px;border-radius:999px;background:rgba(255,255,255,.88);padding:6px 10px;font-size:.72rem;color:#85203b}
+.product-copy{padding:20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.product-copy p{color:var(--muted);line-height:1.65;font-size:.9rem}
+.product-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:12px}
+.product-price{font-weight:750;color:var(--primary)}
+.add-product{border:0;border-radius:999px;padding:10px 14px;background:#b7193f;color:#fff;font:inherit;font-weight:650;cursor:pointer}
+.shop-note{margin-top:26px;padding:17px 20px;border:1px solid var(--border);border-radius:18px;background:var(--surface)}
+.cart-panel{display:none;margin:20px 0;padding:24px;border:1px solid var(--border);border-radius:22px;background:var(--surface-solid);box-shadow:var(--shadow)}
+.cart-panel.open{display:block}
+.cart-line{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)}
+.checkout-button{margin-top:16px;border:0;border-radius:999px;padding:12px 18px;background:#b7193f;color:white;font:inherit;font-weight:700;cursor:pointer}
+@media(max-width:800px){.shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-hero{grid-template-columns:1fr}.shop-hero-art{min-height:150px}}
+@media(max-width:540px){.shop-grid{grid-template-columns:1fr}.product-art{height:170px}.shop-wrap{padding-inline:15px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy <span>Hub</span></span></a>
+<nav class="main-nav"><a href="../index.html">Home</a><a href="../courses/index.html">Courses</a><a class="active" href="index.html">Shop</a><a href="../podcast/index.html">Podcast</a></nav>
+<button class="theme-toggle" id="themeToggle" aria-label="Switch color theme"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+</header>
+<main class="shop-wrap">
+<section class="shop-hero">
+<div><span class="eyebrow">The YalumyHub shop</span><h1>Useful things.<br><em>Made with care.</em></h1><p>Discover thoughtful digital resources for learning and handmade pieces created with care. One shop, two kinds of creativity.</p><span class="status-pill">Digital goods · Handmade creations</span></div>
+<div class="shop-hero-art" role="img" aria-label="A calm creative workspace"></div>
+</section>
+<div class="shop-toolbar"><div><span class="eyebrow">Browse the collection</span><h2>Find something meaningful</h2></div><button class="cart-toggle" id="cartToggle" type="button">Shopping bag (<span id="cartCount">0</span>)</button></div>
+<div class="shop-filters" role="group" aria-label="Filter products"><button class="shop-filter active" data-filter="all">All products</button><button class="shop-filter" data-filter="digital">Digital products</button><button class="shop-filter" data-filter="handmade">Handmade</button></div>
+<section class="shop-grid" id="productGrid" aria-live="polite"></section>
+<section class="cart-panel" id="cartPanel" aria-live="polite"><h2>Your shopping bag</h2><div id="cartLines"></div><p id="cartTotal"></p><button class="checkout-button" id="checkoutButton" type="button">Continue to checkout</button><p class="shop-note">Checkout is not activated yet. Before accepting real orders, we need to connect a payment method available to a seller in Tunisia and configure secure order storage and digital-file delivery.</p></section>
+<p class="shop-note">Storefront preview: the sample products and prices below are placeholders. No payment is taken and no order is submitted yet.</p>
+</main>
+<footer class="site-footer"><a class="brand footer-brand" href="../index.html"><img src="../assets/images/favicon.png" alt=""><span>Yalumy <span>Hub</span></span></a><p>Learn thoughtfully. Grow confidently.</p><span>© 2026 YalumyHub</span></footer>
+<script src="../assets/site.js"></script>
+<script>
+const products=[
+{id:'study-planner',kind:'digital',name:'Study Planner',description:'A printable weekly planner to organize study sessions and small goals.',price:8,currency:'TND',symbol:'▤'},
+{id:'svt-revision',kind:'digital',name:'SVT Revision Pack',description:'A sample concept for organized revision sheets and learning resources.',price:12,currency:'TND',symbol:'✧'},
+{id:'creative-templates',kind:'digital',name:'Creative Templates',description:'Reusable printable pages for planning, reflection and creative projects.',price:7,currency:'TND',symbol:'▧'},
+{id:'crochet-pouch',kind:'handmade',name:'Crochet Pouch',description:'A sample handmade item card; actual stock and shipping details are not configured.',price:25,currency:'TND',symbol:'❋'},
+{id:'yarn-accessory',kind:'handmade',name:'Yarn Accessory',description:'A sample listing for a handmade yarn creation, ready for real product photos.',price:18,currency:'TND',symbol:'⌘'},
+{id:'gift-set',kind:'handmade',name:'Little Gift Set',description:'A sample gift-set listing; customization and delivery will be added later.',price:35,currency:'TND',symbol:'♡'}
+];
+let filter='all',cart=JSON.parse(localStorage.getItem('yalumy-shop-cart')||'[]');
+const grid=document.getElementById('productGrid');
+function drawProducts(){grid.innerHTML=products.filter(p=>filter==='all'||p.kind===filter).map(p=>'<article class="product-card"><div class="product-art"><span class="product-kind">'+(p.kind==='digital'?'Digital download':'Handmade')+'</span><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="27"/><path d="M26 43c7-20 21-20 28 0M30 49h20M35 30v-7m10 7v-7"/></svg></div><div class="product-copy"><h3>'+p.name+'</h3><p>'+p.description+'</p><div class="product-foot"><span class="product-price">'+p.price+' '+p.currency+'</span><button class="add-product" data-add="'+p.id+'">Add to bag</button></div></div></article>').join('');grid.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.add;const item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id,qty:1});saveCart();drawCart();b.textContent='Added ✓';setTimeout(()=>b.textContent='Add to bag',900)}))}
+function saveCart(){localStorage.setItem('yalumy-shop-cart',JSON.stringify(cart));document.getElementById('cartCount').textContent=cart.reduce((n,x)=>n+x.qty,0)}
+function drawCart(){const lines=document.getElementById('cartLines');lines.innerHTML=cart.length?cart.map(x=>{const p=products.find(y=>y.id===x.id);return '<div class="cart-line"><span>'+p.name+' × '+x.qty+'</span><strong>'+p.price*x.qty+' '+p.currency+'</strong></div>'}).join(''):'<p>Your bag is empty.</p>';document.getElementById('cartTotal').textContent='Subtotal: '+cart.reduce((n,x)=>n+products.find(y=>y.id===x.id).price*x.qty,0)+' TND'}
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));drawProducts()}));
+document.getElementById('cartToggle').addEventListener('click',()=>document.getElementById('cartPanel').classList.toggle('open'));
+document.getElementById('checkoutButton').addEventListener('click',()=>alert('Checkout is a design preview only. We will activate it after connecting a supported Tunisian payment method and secure order processing.'));
+saveCart();drawProducts();drawCart();
+</script>
+</body>
+</html>
