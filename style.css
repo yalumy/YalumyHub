@@ -501,3 +501,66 @@ body.unified-page:not(.home-page).dark .hero:not(.editorial-hero) {background:li
 .space-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
 .podcast-card .space-symbol {color:#5E8495}
 @media(max-width:760px){.space-grid{grid-template-columns:1fr}.dock-links a{min-width:42px}.dock-links a span:last-child{font-size:.58rem}}
+
+
+/* Cherry editorial identity — shared across every YalumyHub page */
+:root {
+  --paper:#fff8f6; --ink:#42111f; --muted:#86636c;
+  --surface:rgba(255,255,255,.88); --surface-solid:#fffdfc;
+  --border:rgba(167,28,62,.16); --shadow:0 18px 52px rgba(100,20,43,.10);
+  --primary:#b7193f; --primary-soft:#fde7ec; --sage:#f1b7c4;
+  --olive:#8f1736; --moss:#d96b87; --coral:#e64e70;
+  --blush:#f8d8df; --cream:#fff0e9; --text:#42111f;
+}
+body { color:var(--ink); background-color:var(--paper); }
+a, button, input, select, textarea, .card, .content-card, .resource-card,
+.portal-card, .dock, .site-header, .btn, .space-card, .course-feature {
+  transition: color .22s ease, background-color .28s ease, border-color .25s ease,
+              box-shadow .28s ease, transform .28s cubic-bezier(.2,.75,.25,1),
+              opacity .22s ease;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline:3px solid rgba(214,45,88,.45); outline-offset:3px;
+}
+a:hover img, button:hover img { transform:scale(1.025); }
+img { transition: transform .35s ease, filter .25s ease; }
+body::after {
+  background:
+    radial-gradient(circle at 8% 7%,rgba(248,193,205,.42),transparent 30%),
+    radial-gradient(circle at 94% 14%,rgba(232,90,125,.14),transparent 29%),
+    radial-gradient(circle at 50% 100%,rgba(255,230,214,.52),transparent 38%);
+}
+.dock, .site-header {
+  border-color:rgba(183,25,63,.14);
+  box-shadow:0 14px 42px rgba(100,20,43,.10);
+}
+.dock-links a.active, .dock-links a:hover, .main-nav a.active, .main-nav a:hover {
+  background:#fde4ea; color:#9f1537;
+}
+.berry-button, .btn-primary, .primary-button {
+  background:linear-gradient(135deg,#c51e49,#a71135); color:#fff;
+  box-shadow:0 9px 24px rgba(183,25,63,.19);
+}
+.cream-button { color:#9f1537; border-color:rgba(183,25,63,.2); }
+.space-card:hover, .content-card:hover, .resource-card:hover, .portal-card:hover {
+  border-color:rgba(183,25,63,.34); box-shadow:0 22px 52px rgba(100,20,43,.13);
+}
+body.dark {
+  --paper:#1b1015; --ink:#fff0f3; --muted:#d0aab4;
+  --surface:rgba(43,24,32,.94); --surface-solid:#2a1920;
+  --border:rgba(255,156,181,.18); --shadow:0 22px 58px rgba(0,0,0,.30);
+  --primary:#ff8ba8; --primary-soft:#46202d; --sage:#d15b7b;
+  --olive:#ff8ba8; --moss:#7e3147; --coral:#ff9a9f;
+  --blush:#4a2531; --cream:#34202a; --text:#fff0f3;
+}
+body.dark::after {
+  background:radial-gradient(circle at 8% 5%,rgba(160,30,66,.25),transparent 31%),
+             radial-gradient(circle at 93% 12%,rgba(111,39,67,.22),transparent 30%),
+             linear-gradient(155deg,#1b1015,#25131c 55%,#170d12);
+}
+body.dark .dock-links a.active, body.dark .dock-links a:hover {
+  background:#48202d;color:#fff0f3;
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+}
