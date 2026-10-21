@@ -163,3 +163,29 @@ a,button,.card,.content-card,.resource-card,.portal-card,.course-feature,.dock,.
 }
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(214,45,88,.48);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){body{animation:none}*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* YalumyHub signature pattern — cherry blossom + open book, light/dark aware */
+:root{
+ --yh-cherry:#8b1e3f;--yh-rose:#b5405a;--yh-blush:#fadadd;--yh-cream:#fff7f3;
+ --yh-burgundy:#2c0f17;--yh-slate:#6b7280;--yh-gold:#d4a373;
+ --yh-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23b5405a' stroke-opacity='.13' stroke-width='1.2'%3E%3Cpath d='M18 46c12-18 25-19 35-3-12 5-23 7-35 3zm11 0c-2 13 0 22 8 30M128 121c11-15 22-15 31-2-10 4-20 5-31 2zm8 0c-1 11 1 18 7 24'/%3E%3Cpath d='M64 130q17-13 34 0v18q-17-13-34 0z M81 130v18'/%3E%3C/g%3E%3Cg fill='%23b5405a' fill-opacity='.13'%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(0 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(72 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(144 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(216 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(288 105 42)'/%3E%3Ccircle cx='105' cy='42' r='4' fill='%23d4a373' fill-opacity='.45'/%3E%3C/g%3E%3Ctext x='24' y='112' fill='%238b1e3f' fill-opacity='.11' font-family='Georgia,serif' font-size='21' font-weight='bold'%3EYH%3C/text%3E%3C/svg%3E");
+}
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.9;
+ background-image:var(--yh-pattern);background-size:180px 180px;
+}
+body:not(.dark){--paper:#fff7f3;--ink:#2c0f17;--muted:#76565f;--primary:#8b1e3f;--primary-soft:#fadadd}
+body.dark{--paper:#1a0c11;--ink:#fff0f2;--muted:#c6a0aa;--primary:#f29ab0;--primary-soft:#3c1825}
+body.dark::before{filter:brightness(1.8) saturate(.85);opacity:.34}
+body:not(.dark) .hero-content-panel{background:linear-gradient(145deg,#fff0f2 0%,#fffaf8 65%,#fff0e9 100%)!important}
+body:not(.dark) .berry-button,body:not(.dark) .btn-primary,body:not(.dark) .primary-action{background:linear-gradient(135deg,#b5405a,#8b1e3f)!important;color:#fff!important}
+body:not(.dark) .dock-links a.active,body:not(.dark) .dock-links a:hover{background:#fadadd!important;color:#8b1e3f!important}
+body:not(.dark) .plum-card,body:not(.dark) .lavender-card{background:linear-gradient(145deg,#fadadd,#fffaf8)!important}
+body:not(.dark) .cream-card,body:not(.dark) .moss-card{background:linear-gradient(145deg,#fff0e5,#fffaf8)!important}
+body:not(.dark) .podcast-card{background:linear-gradient(145deg,#f9dce4,#fffaf6)!important}
+body.dark .editorial-hero,body.dark .hero-content-panel,body.dark .space-card,body.dark .podcast-hero,body.dark .podcast-panel,body.dark .feature-panel{background:linear-gradient(145deg,#2c111b,#1c0e14)!important;color:#fff0f2!important}
+body.dark .dock{background:rgba(35,15,23,.94)!important;border-color:rgba(242,154,176,.2)!important}
+body.dark .dock-links a.active,body.dark .dock-links a:hover{background:#48202e!important;color:#fff0f2!important}
+body.dark .hero-content-panel h1 em,body.dark .hero-kicker,body.dark .section-index{color:#f29ab0!important}
+.dock-icon,.space-symbol{color:var(--primary)!important}
