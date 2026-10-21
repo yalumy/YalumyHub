@@ -102,3 +102,18 @@ if (dock && dockGrip) {
 }
 
 applyYalumyLanguage(currentLanguage);
+
+/* Keep updated design styles fresh on every page and style the language control. */
+document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+  if (link.href.includes("/assets/redesign.css")) link.href = link.href.split("?")[0] + "?v=cherry-20261021";
+});
+const languageStyle = document.createElement("style");
+languageStyle.textContent = `
+.yalumy-language-toggle{position:fixed;right:22px;bottom:22px;z-index:10001;border:1px solid rgba(183,25,63,.22);border-radius:999px;padding:10px 16px;background:rgba(255,253,252,.94);color:#9f1537;font:600 13px/1.2 'DM Sans',Arial,sans-serif;box-shadow:0 8px 28px rgba(100,20,43,.14);backdrop-filter:blur(14px);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.yalumy-language-toggle:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(100,20,43,.18)}
+.arabic-interface{font-family:'Alexandria',Tahoma,sans-serif}
+.arabic-interface .yalumy-language-toggle{right:auto;left:22px}
+.arabic-interface .dock-links,.arabic-interface .main-nav{direction:rtl}
+@media(max-width:760px){.yalumy-language-toggle{right:12px;bottom:12px;padding:9px 13px}.arabic-interface .yalumy-language-toggle{left:12px;right:auto}}
+`;
+document.head.appendChild(languageStyle);
