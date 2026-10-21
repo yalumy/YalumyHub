@@ -392,3 +392,37 @@ body .dock-icon-svg{display:block;width:22px;height:22px;object-fit:contain;colo
 body.dark .dock-icon-svg{filter:brightness(1.25)}
 body:not(.dark) .editorial-hero{background:var(--surface-solid)}
 body.dark .editorial-hero{background:#24121a!important}
+
+
+/* Real section-specific photos already stored in the repository */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.10),rgba(63,12,28,0) 58%),url("images/hero/study-desk-photo.webp")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body.dark .hero-image-panel{background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.04)),url("images/hero/study-desk-photo.webp")!important}
+body.unified-page:not(.home-page) .hero:not(.editorial-hero){
+ background:linear-gradient(120deg,rgba(255,247,243,.96),rgba(255,247,243,.86))!important;
+}
+body.unified-page:not(.home-page).dark .hero:not(.editorial-hero){
+ background:linear-gradient(120deg,rgba(26,12,17,.97),rgba(44,17,27,.91))!important;
+}
+body.unified-page .memory-intro{
+ background:linear-gradient(120deg,rgba(255,247,243,.97),rgba(255,247,243,.9))!important;
+}
+body.unified-page.dark .memory-intro{
+ background:linear-gradient(120deg,rgba(26,12,17,.97),rgba(44,17,27,.91))!important;
+}
+.space-card{position:relative;overflow:hidden;isolation:isolate}
+.space-card::after{
+ content:"";position:absolute;z-index:-1;pointer-events:none;right:0;top:0;width:48%;height:57%;
+ background-position:center;background-size:cover;background-repeat:no-repeat;opacity:.22;
+ border-radius:0 0 0 28px;mask-image:linear-gradient(135deg,#000 10%,transparent 100%);
+}
+.space-grid .space-card:nth-child(1)::after{background-image:url("images/tools/memory-map-photo.webp")}
+.space-grid .space-card:nth-child(2)::after{background-image:url("images/tools/focus-room-photo.webp")}
+.space-grid .space-card:nth-child(3)::after{background-image:url("images/courses/biology-books-photo.webp")}
+.space-grid .space-card:nth-child(4)::after{background-image:url("images/podcast/podcast-studio-photo.webp")}
+.space-grid .space-card:nth-child(5)::after{background-image:url("images/tools/relax-session-photo.webp")}
+body.dark .space-card::after{opacity:.15}
+.hero-brandline img.brand-wordmark{width:170px;height:auto;max-width:100%;object-fit:contain}
+@media(max-width:600px){.space-card::after{width:40%;height:48%;opacity:.14}}
