@@ -254,3 +254,20 @@ body>*{position:relative;z-index:1}
 body .dock,body .universal-dock{z-index:1000}
 body .yalumy-language-toggle{z-index:1001}
 @media(max-width:760px){body::before{background-size:150px 150px;opacity:.1}}
+
+
+/* Use the real, separately stored brand pattern and hero asset */
+:root{--yh-pattern:url("patterns/yalumy-light.svg")}
+body.dark{--yh-pattern:url("patterns/yalumy-dark.svg")}
+body::before{
+ background-image:var(--yh-pattern)!important;
+ background-size:240px 240px!important;
+ background-repeat:repeat!important;
+}
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.12),rgba(63,12,28,0) 58%),url("images/hero/study-workspace.svg")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body.dark .hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.06)),url("images/hero/study-workspace.svg")!important;
+}
