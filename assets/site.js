@@ -156,6 +156,15 @@ document.head.appendChild(languageStyle);
     const href = link.getAttribute("href") || "";
     if (/assets\/images\/favicon\.png$/.test(href)) link.setAttribute("href", href.replace(/assets\/images\/favicon\.png$/, "assets/images/brand/mark.svg"));
   });
+  const updateMarkTheme = () => {
+    const markFile = document.body.classList.contains("dark") ? "mark-dark.svg" : "mark.svg";
+    document.querySelectorAll('img[src*="assets/images/brand/mark"]').forEach(img => {
+      const src = img.getAttribute("src") || "";
+      if (/assets\\/images\\/brand\\/mark(?:-dark)?\\.svg$/.test(src)) img.setAttribute("src", src.replace(/mark(?:-dark)?\\.svg$/, markFile));
+    });
+  };
+  updateMarkTheme();
+  new MutationObserver(updateMarkTheme).observe(document.body, {attributes:true, attributeFilter:["class"]});
   let artwork = "";
   if (/^games\/(?:homme-quiz|homme-match)\.html$/.test(sitePath)) artwork = "assets/images/lessons/homme.svg";
   else if (/^games\/(?:femme-quiz|femme-match)\.html$/.test(sitePath)) artwork = "assets/images/lessons/femme.svg";
