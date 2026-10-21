@@ -160,7 +160,7 @@ document.head.appendChild(languageStyle);
     const markFile = document.body.classList.contains("dark") ? "mark-dark.svg" : "mark.svg";
     document.querySelectorAll('img[src*="assets/images/brand/mark"]').forEach(img => {
       const src = img.getAttribute("src") || "";
-      if (/assets\\/images\\/brand\\/mark(?:-dark)?\\.svg$/.test(src)) img.setAttribute("src", src.replace(/mark(?:-dark)?\\.svg$/, markFile));
+      if (/assets\/images\/brand\/mark(?:-dark)?\.svg$/.test(src)) img.setAttribute("src", src.replace(/mark(?:-dark)?\.svg$/, markFile));
     });
   };
   updateMarkTheme();
