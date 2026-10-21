@@ -139,3 +139,39 @@ languageStyle.textContent = `
 @media(max-width:760px){.yalumy-language-toggle{right:12px;bottom:12px;padding:9px 13px}.arabic-interface .yalumy-language-toggle{left:12px;right:auto}}
 `;
 document.head.appendChild(languageStyle);
+
+
+/* Use the brand mark consistently, and connect lesson-specific artwork where relevant. */
+(function applyYalumyAssets(){
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const marker = path.indexOf("/YalumyHub/");
+  const sitePath = marker >= 0 ? path.slice(marker + "/YalumyHub/".length) : path.replace(/^\\/+/, "");
+  const dir = sitePath.endsWith("/") ? sitePath : sitePath.slice(0, Math.max(0, sitePath.lastIndexOf("/") + 1));
+  const depth = dir.split("/").filter(Boolean).length;
+  const prefix = depth === 0 ? "" : "../".repeat(depth);
+  document.querySelectorAll("img[src]").forEach(img => {
+    img.setAttribute("src", img.getAttribute("src").replace(/assets\/images\/favicon\.png$/, "assets/images/brand/mark.svg"));
+  });
+  document.querySelectorAll('link[rel="icon"],link[rel="apple-touch-icon"]').forEach(link => {
+    const href = link.getAttribute("href") || "";
+    if (/assets\/images\/favicon\.png$/.test(href)) link.setAttribute("href", href.replace(/assets\/images\/favicon\.png$/, "assets/images/brand/mark.svg"));
+  });
+  let artwork = "";
+  if (/^games\/(?:homme-quiz|homme-match)\.html$/.test(sitePath)) artwork = "assets/images/lessons/homme.svg";
+  else if (/^games\/(?:femme-quiz|femme-match)\.html$/.test(sitePath)) artwork = "assets/images/lessons/femme.svg";
+  else if (/^games\/(?:9bal-el-bac-quiz|9bal-el-bac-match)\.html$/.test(sitePath)) artwork = "assets/images/tools/educational-games.svg";
+  else if (/^courses\/svt-bac-sciences-experimentales\.html$/.test(sitePath)) artwork = "assets/images/courses/biology-lab.svg";
+  if (artwork && !document.querySelector(".page-artwork")) {
+    const hero = document.querySelector("main .hero, main .page-hero, body > .container .hero");
+    if (hero) {
+      const img = document.createElement("img");
+      img.className = "page-artwork";
+      img.src = prefix + artwork;
+      img.alt = "";
+      img.setAttribute("aria-hidden", "true");
+      const badge = hero.querySelector(".hero-badge,.eyebrow");
+      if (badge) badge.insertAdjacentElement("afterend", img);
+      else hero.prepend(img);
+    }
+  }
+})();
