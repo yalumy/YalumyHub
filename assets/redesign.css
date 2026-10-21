@@ -321,3 +321,8 @@ body.dark .section-artwork{filter:saturate(.88) brightness(.9)}
  .focus-body .setup-panel>.page-artwork,.relax-intro>.page-artwork{float:none;width:128px;max-height:90px;margin:0 auto 10px}
  .memory-page-artwork{width:145px;max-height:90px}
 }
+
+.space-symbol-icon{position:absolute;right:24px;top:53px;width:48px;height:48px;object-fit:contain;opacity:.9;filter:invert(14%) sepia(52%) saturate(3272%) hue-rotate(312deg) brightness(70%) contrast(112%)}
+body.dark .space-symbol-icon{filter:invert(83%) sepia(27%) saturate(1266%) hue-rotate(300deg) brightness(104%) contrast(98%);opacity:.95}
+.yalumy-icon-file{display:inline-block;width:28px;height:28px;object-fit:contain;vertical-align:middle;filter:invert(14%) sepia(52%) saturate(3272%) hue-rotate(312deg) brightness(70%) contrast(112%)}
+body.dark .yalumy-icon-file{filter:invert(83%) sepia(27%) saturate(1266%) hue-rotate(300deg) brightness(104%) contrast(98%)}
