@@ -124,7 +124,7 @@ if (!Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(link =
 
 /* Keep updated design styles fresh on every page and style the language control. */
 document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
-  if (link.href.includes("/assets/redesign.css")) link.href = link.href.split("?")[0] + "?v=cherry-20261021";
+  if (link.href.includes("/assets/redesign.css")) link.href = link.href.split("?")[0] + "?v=yalumy-assets-20261021-2";
 });
 const languageStyle = document.createElement("style");
 languageStyle.textContent = `
