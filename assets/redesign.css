@@ -227,3 +227,30 @@ body a:focus-visible,body button:focus-visible,body input:focus-visible,body sel
 @media(max-width:760px){
  body::before{background-size:150px 150px!important;opacity:.12!important}
 }
+
+
+/* Final image placement pass: use the existing locally hosted Yalumy illustration */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.12),rgba(63,12,28,0) 58%),url("images/study-workspace-hero.svg")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body:not(.dark) .hero-image-panel{background-color:#f7dfe5!important}
+body.dark .hero-image-panel{background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.06)),url("images/study-workspace-hero.svg")!important}
+.space-card{isolation:isolate}
+.space-card::after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;
+ background-image:url("images/study-workspace-hero.svg");background-size:cover;background-position:center;
+ mask-image:linear-gradient(135deg,#000,transparent 78%);
+}
+body.dark .space-card::after{opacity:.08}
+.hero-image-label{background:rgba(80,13,34,.66)!important;border:1px solid rgba(255,255,255,.34);padding:10px 14px;border-radius:14px;backdrop-filter:blur(12px)}
+/* Low-noise floral signature texture across all content */
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0!important;opacity:.17;
+ background-image:var(--yh-pattern);background-size:190px 190px;background-repeat:repeat;
+}
+body.dark::before{opacity:.1;filter:brightness(1.6) saturate(.8)}
+body>*{position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+@media(max-width:760px){body::before{background-size:150px 150px;opacity:.1}}
