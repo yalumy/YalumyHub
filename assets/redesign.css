@@ -189,3 +189,41 @@ body.dark .dock{background:rgba(35,15,23,.94)!important;border-color:rgba(242,15
 body.dark .dock-links a.active,body.dark .dock-links a:hover{background:#48202e!important;color:#fff0f2!important}
 body.dark .hero-content-panel h1 em,body.dark .hero-kicker,body.dark .section-index{color:#f29ab0!important}
 .dock-icon,.space-symbol{color:var(--primary)!important}
+
+
+/* Consistent card system and accessible theme-aware pattern across all pages */
+body::before{
+ position:fixed!important;inset:0!important;pointer-events:none!important;
+ z-index:0!important;opacity:.19!important;background-image:var(--yh-pattern)!important;
+ background-size:190px 190px!important;background-repeat:repeat!important;
+}
+body>*{position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+body.dark::before{opacity:.12!important;filter:brightness(1.7) saturate(.8)}
+body:not(.dark) .course-card,body:not(.dark) .lesson-card,body:not(.dark) .activity-card,
+body:not(.dark) .resource-card,body:not(.dark) .portal-card,body:not(.dark) .content-card,
+body:not(.dark) .memory-card,body:not(.dark) .review-card,body:not(.dark) .tool-card{
+ background:rgba(255,253,251,.92)!important;border:1px solid rgba(139,30,63,.13)!important;
+ box-shadow:0 12px 34px rgba(90,24,44,.065)!important;border-radius:22px!important;
+}
+body:not(.dark) .course-card:hover,body:not(.dark) .lesson-card:hover,body:not(.dark) .activity-card:hover,
+body:not(.dark) .resource-card:hover,body:not(.dark) .portal-card:hover,body:not(.dark) .content-card:hover{
+ border-color:rgba(139,30,63,.28)!important;box-shadow:0 18px 42px rgba(90,24,44,.10)!important;
+}
+body.dark .course-card,body.dark .lesson-card,body.dark .activity-card,body.dark .resource-card,
+body.dark .portal-card,body.dark .content-card,body.dark .memory-card,body.dark .review-card,body.dark .tool-card{
+ background:rgba(44,17,27,.94)!important;border:1px solid rgba(242,154,176,.16)!important;
+ box-shadow:0 14px 36px rgba(0,0,0,.18)!important;color:#fff0f2!important;
+}
+body.dark input,body.dark textarea,body.dark select{
+ background:#2b1720!important;color:#fff0f2!important;border-color:rgba(242,154,176,.25)!important;
+}
+body.dark input::placeholder,body.dark textarea::placeholder{color:#c6a0aa!important}
+body img{max-width:100%}
+body a:focus-visible,body button:focus-visible,body input:focus-visible,body select:focus-visible{
+ outline:3px solid rgba(181,64,90,.55)!important;outline-offset:3px!important
+}
+@media(max-width:760px){
+ body::before{background-size:150px 150px!important;opacity:.12!important}
+}
