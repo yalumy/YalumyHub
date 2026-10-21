@@ -278,3 +278,19 @@ body.dark .brand-mark-light{display:none}
 body.dark .brand-mark-dark{display:inline-block}
 .hero-brandline img.brand-mark-light,.hero-brandline img.brand-mark-dark{width:min(235px,72%);height:auto;max-height:62px;object-fit:contain;object-position:left center}
 body.dark .new-footer .brand img{filter:none}
+
+/* Content-specific artwork paths */
+.card-image-biology{background-image:url("images/courses/biology-lab.svg")}
+.card-image-homme{background-image:url("images/lessons/homme.svg")}
+.card-image-femme{background-image:url("images/lessons/femme.svg")}
+.card-image-podcast{background-image:url("images/podcast/podcast-studio.svg")}
+.card-image-focus{background-image:url("images/tools/focus-timer.svg")}
+.card-image-relax{background-image:url("images/tools/relax-breathing.svg")}
+.card-image-memory{background-image:url("images/tools/memory-map.svg")}
+.card-image-games{background-image:url("images/tools/educational-games.svg")}
+.card-image-story{background-image:url("images/brand/our-story.svg")}
+.brand-mark-dark{display:none}
+body.dark .brand-mark-light{display:none}
+body.dark .brand-mark-dark{display:inline-block}
+.hero-brandline img.brand-mark-light,.hero-brandline img.brand-mark-dark{width:min(235px,72%);height:auto;max-height:62px;object-fit:contain;object-position:left center}
+body.dark .new-footer .brand img{filter:none}
