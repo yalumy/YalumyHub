@@ -166,6 +166,8 @@ document.head.appendChild(languageStyle);
   new MutationObserver(updateMarkTheme).observe(document.body,{attributes:true,attributeFilter:["class"]});
   let artwork="";
   if(/^index\\.html$/.test(sitePath)||sitePath==="")artwork="assets/images/hero/study-hero.svg";
+  else if(/^the-owner\\/index\\.html$/.test(sitePath))artwork="assets/images/story/yalumy-story.svg";
+  else if(/^lessons\\/9bal-el-bac\\.html$/.test(sitePath))artwork="assets/images/lessons/biology.svg";
   else if(/^podcast\\/(?:index\\.html|mini-pod\\/index\\.html)$/.test(sitePath))artwork="assets/images/podcast/podcast-studio.svg";
   else if(/^focus\\/index\\.html$/.test(sitePath))artwork="assets/images/tools/focus-room.svg";
   else if(/^relax\\/index\\.html$/.test(sitePath))artwork="assets/images/tools/breathe-room.svg";
@@ -175,7 +177,7 @@ document.head.appendChild(languageStyle);
   else if(/^games\\/(?:9bal-el-bac-quiz|9bal-el-bac-match)\\.html$/.test(sitePath))artwork="assets/images/tools/educational-games.svg";
   else if(/^courses\\/svt-bac-sciences-experimentales\\.html$/.test(sitePath))artwork="assets/images/courses/biology-lab.svg";
   if(artwork&&!document.querySelector(".page-artwork")){
-    const hero=document.querySelector("main .hero, main .page-hero, body > .container .hero");
+    const hero=document.querySelector("main .hero, main .page-hero, main .podcast-hero, main .memory-intro, .focus-intro, .relax-intro, body > .container .hero");
     if(hero){const img=document.createElement("img");img.className="page-artwork";img.src=prefix+artwork;img.alt="";img.setAttribute("aria-hidden","true");hero.prepend(img);}
   }
 })();
