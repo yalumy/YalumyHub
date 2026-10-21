@@ -308,3 +308,16 @@ body.dark .space-card::after{opacity:.11!important}
 .section-artwork{display:block;width:min(100%,520px);max-height:230px;object-fit:contain;object-position:left center;margin:12px 0 20px;border-radius:18px}
 body.dark .section-artwork{filter:saturate(.88) brightness(.9)}
 @media(max-width:600px){.section-artwork{max-height:165px;margin:8px 0 14px}}
+
+/* Page artwork — placed as a supporting visual without covering controls */
+.page-artwork{display:block;width:min(100%,280px);max-height:170px;object-fit:contain;object-position:center;opacity:.94;margin:0 auto 12px}
+.memory-page-artwork{width:min(100%,235px);max-height:130px;margin:0}
+.focus-body .setup-panel{position:relative}
+.focus-body .setup-panel>.page-artwork{float:right;width:140px;max-height:95px;margin:0 0 12px 18px;opacity:.82}
+.relax-intro>.page-artwork{float:right;width:170px;max-height:120px;margin:0 0 10px 18px}
+.memory-intro>.memory-page-artwork{align-self:center}
+@media(max-width:700px){
+ .page-artwork{max-width:200px;max-height:120px}
+ .focus-body .setup-panel>.page-artwork,.relax-intro>.page-artwork{float:none;width:128px;max-height:90px;margin:0 auto 10px}
+ .memory-page-artwork{width:145px;max-height:90px}
+}
