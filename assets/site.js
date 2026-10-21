@@ -156,10 +156,14 @@ document.head.appendChild(languageStyle);
     if(/assets\\/images\\/favicon\\.png$/.test(href))link.href=href.replace(/assets\\/images\\/favicon\\.png$/,"assets/images/brand/mark.svg");
   });
   const updateMarkTheme=()=>{
-    const desired=document.body.classList.contains("dark")?"mark-dark.svg":"mark.svg";
+    const dark=document.body.classList.contains("dark");
+    const desired=dark?"mark-dark.svg":"mark.svg";
     document.querySelectorAll('img[src*="assets/images/brand/mark"]').forEach(img=>{
       const src=img.getAttribute("src")||"";
       if(/mark(?:-dark)?\\.svg$/.test(src))img.src=src.replace(/mark(?:-dark)?\\.svg$/,desired);
+    });
+    document.querySelectorAll('img.brand-wordmark[src*="assets/images/brand/logo-"]').forEach(img=>{
+      img.src=prefix+"assets/images/brand/"+(dark?"logo-dark.svg":"logo-light.svg");
     });
   };
   updateMarkTheme();
