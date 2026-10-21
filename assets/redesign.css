@@ -336,3 +336,31 @@ body.dark .podcast-hero{
  background-image:linear-gradient(100deg,rgba(26,12,17,.98) 0%,rgba(26,12,17,.88) 54%,rgba(26,12,17,.3) 100%),url("images/podcast/podcast-studio.svg")!important;
 }
 @media(max-width:700px){.podcast-hero{background-size:cover,auto 70%!important;background-position:center,right bottom!important}}
+
+/* Actual individual photographic crops, separate from the custom SVG illustrations */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(54,11,28,.22),rgba(54,11,28,.02) 58%),url("images/study-workspace-hero.jpg")!important;
+ background-position:center!important;background-size:cover!important;
+}
+body.dark .hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(26,12,17,.38),rgba(26,12,17,.12) 58%),url("images/study-workspace-hero.jpg")!important;
+}
+.course-category:nth-child(1) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.14),transparent),url("images/courses/biology-books-photo.webp")!important;
+}
+.course-category:nth-child(2) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.12),transparent),url("images/hero/study-desk-photo.webp")!important;
+}
+.course-category:nth-child(3) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.15),transparent),url("images/tools/educational-games-photo.webp")!important;
+}
+.space-card.card-image-focus::after{background-image:url("images/tools/focus-room-photo.webp")!important}
+.space-card.card-image-memory::after{background-image:url("images/tools/memory-map-photo.webp")!important}
+.space-card.card-image-podcast::after{background-image:url("images/podcast/podcast-studio-photo.webp")!important}
+.podcast-hero{
+ background-image:linear-gradient(100deg,rgba(255,247,243,.96) 0%,rgba(255,247,243,.88) 48%,rgba(255,247,243,.12) 100%),url("images/podcast/podcast-studio-photo.webp")!important;
+ background-size:cover,auto 100%!important;background-position:center,right center!important;background-repeat:no-repeat!important;
+}
+body.dark .podcast-hero{
+ background-image:linear-gradient(100deg,rgba(26,12,17,.98) 0%,rgba(26,12,17,.82) 54%,rgba(26,12,17,.25) 100%),url("images/podcast/podcast-studio-photo.webp")!important;
+}
