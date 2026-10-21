@@ -37,6 +37,38 @@ if (!document.getElementById("floatingDock")) {
   });
 }
 
+
+// English / Arabic interface switch. SVT Bac learning content stays French.
+const languageKey = "yalumy-language";
+let currentLanguage = localStorage.getItem(languageKey) || "en";
+const languageLabels = {
+  en: {home:"Home",memory:"Memory Map",courses:"Courses",podcast:"Podcast",focus:"Focus",breathe:"Breathe",story:"Our Story",switch:"العربية"},
+  ar: {home:"الرئيسية",memory:"خريطة الذاكرة",courses:"الدروس",podcast:"البودكاست",focus:"التركيز",breathe:"الاسترخاء",story:"قصتنا",switch:"English"}
+};
+function applyYalumyLanguage(language) {
+  currentLanguage = language;
+  localStorage.setItem(languageKey, language);
+  document.documentElement.lang = language === "ar" ? "ar" : "en";
+  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  const labels = languageLabels[language];
+  const dockItems = document.querySelectorAll("#floatingDock .dock-links a");
+  const keys = ["home","memory","courses","podcast","focus","breathe","story"];
+  dockItems.forEach((link,index) => {
+    const span = link.querySelector("span:last-child");
+    if (span && keys[index]) span.textContent = labels[keys[index]];
+  });
+  const switcher = document.getElementById("yalumyLanguageToggle");
+  if (switcher) switcher.textContent = labels.switch;
+  document.body.classList.toggle("arabic-interface", language === "ar");
+}
+const languageButton = document.createElement("button");
+languageButton.type = "button";
+languageButton.id = "yalumyLanguageToggle";
+languageButton.className = "yalumy-language-toggle";
+languageButton.setAttribute("aria-label","Switch interface language");
+languageButton.addEventListener("click", () => applyYalumyLanguage(currentLanguage === "en" ? "ar" : "en"));
+document.body.appendChild(languageButton);
+
 const dock = document.getElementById("floatingDock");
 const dockGrip = document.getElementById("dockGrip");
 if (dock && dockGrip) {
@@ -68,3 +100,5 @@ if (dock && dockGrip) {
   };
   dockGrip.addEventListener("pointerup", stopDragging); dockGrip.addEventListener("pointercancel", stopDragging);
 }
+
+applyYalumyLanguage(currentLanguage);
