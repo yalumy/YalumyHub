@@ -108,6 +108,20 @@ if (dock && dockGrip) {
 
 applyYalumyLanguage(currentLanguage);
 
+/* Ensure the cherry identity stylesheet is present on every legacy page. */
+if (!Array.from(document.querySelectorAll('link[rel="stylesheet"]')).some(link => link.href.includes("/assets/redesign.css"))) {
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const baseIndex = path.indexOf("/YalumyHub/");
+  const sitePath = baseIndex >= 0 ? path.slice(baseIndex + "/YalumyHub/".length) : path.replace(/^\\/+/, "");
+  const dir = sitePath.endsWith("/") ? sitePath : sitePath.slice(0, Math.max(0, sitePath.lastIndexOf("/") + 1));
+  const depth = dir.split("/").filter(Boolean).length;
+  const prefix = depth === 0 ? "" : "../".repeat(depth);
+  const themeLink = document.createElement("link");
+  themeLink.rel = "stylesheet";
+  themeLink.href = prefix + "assets/redesign.css?v=yalumy-cherry-20261021";
+  document.head.appendChild(themeLink);
+}
+
 /* Keep updated design styles fresh on every page and style the language control. */
 document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
   if (link.href.includes("/assets/redesign.css")) link.href = link.href.split("?")[0] + "?v=cherry-20261021";
