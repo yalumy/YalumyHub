@@ -303,3 +303,8 @@ body.dark .new-footer .brand img{filter:none}
 .space-card.card-image-relax::after{background-image:url("images/tools/relax-breathing.svg")}
 .space-card::after{background-size:cover!important;background-position:center!important;opacity:.19!important;mask-image:linear-gradient(135deg,#000,transparent 92%)!important}
 body.dark .space-card::after{opacity:.11!important}
+
+/* Distinct responsive lesson banners */
+.section-artwork{display:block;width:min(100%,520px);max-height:230px;object-fit:contain;object-position:left center;margin:12px 0 20px;border-radius:18px}
+body.dark .section-artwork{filter:saturate(.88) brightness(.9)}
+@media(max-width:600px){.section-artwork{max-height:165px;margin:8px 0 14px}}
