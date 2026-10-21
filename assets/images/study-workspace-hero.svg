@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" fill="none">
 <defs>
- <linearGradient id="bg" x1="80" y1="30" x2="1120" y2="970" gradientUnits="userSpaceOnUse"><stop stop-color="#E7F1EC"/><stop offset=".56" stop-color="#F7F4EA"/><stop offset="1" stop-color="#DCE8F2"/></linearGradient>
- <linearGradient id="desk" x1="70" y1="650" x2="1130" y2="1000" gradientUnits="userSpaceOnUse"><stop stop-color="#E8D7C2"/><stop offset="1" stop-color="#D1BDA6"/></linearGradient>
- <linearGradient id="screen" x1="480" y1="390" x2="800" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#B9D5CE"/><stop offset="1" stop-color="#86AFA7"/></linearGradient>
+ <linearGradient id="bg" x1="80" y1="30" x2="1120" y2="970" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF0F2"/><stop offset=".56" stop-color="#FFF8F3"/><stop offset="1" stop-color="#F6DDE4"/></linearGradient>
+ <linearGradient id="desk" x1="70" y1="650" x2="1130" y2="1000" gradientUnits="userSpaceOnUse"><stop stop-color="#F0D5C5"/><stop offset="1" stop-color="#D8B4A8"/></linearGradient>
+ <linearGradient id="screen" x1="480" y1="390" x2="800" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#F2CBD5"/><stop offset="1" stop-color="#C77B90"/></linearGradient>
  <filter id="shadow" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20"/></filter>
 </defs>
 <rect width="1200" height="1000" rx="36" fill="url(#bg)"/>
 <circle cx="965" cy="180" r="125" fill="#F0D5C5" opacity=".7"/>
-<circle cx="180" cy="210" r="110" fill="#B8D5C8" opacity=".68"/>
+<circle cx="180" cy="210" r="110" fill="#F4C8D2" opacity=".68"/>
 <path d="M0 570C170 515 305 585 463 550C668 505 831 542 1200 460V1000H0V570Z" fill="#F9F7EF" opacity=".74"/>
-<ellipse cx="603" cy="815" rx="440" ry="76" fill="#718780" opacity=".15" filter="url(#shadow)"/>
+<ellipse cx="603" cy="815" rx="440" ry="76" fill="#8B1E3F" opacity=".15" filter="url(#shadow)"/>
 <!-- plant -->
-<path d="M145 594L157 388" stroke="#5B8B76" stroke-width="12" stroke-linecap="round"/>
-<path d="M155 455C85 444 69 390 79 346C128 359 167 399 155 455Z" fill="#83B59B"/>
-<path d="M157 414C190 349 241 344 273 360C254 415 205 440 157 414Z" fill="#A8CDB8"/>
-<path d="M151 506C93 504 57 466 55 431C109 431 149 461 151 506Z" fill="#6E9D83"/>
-<path d="M150 389C142 335 166 289 205 270C223 326 196 368 150 389Z" fill="#9AC6AD"/>
-<path d="M105 589H204L190 690H119L105 589Z" fill="#D99D83"/>
-<path d="M105 589H204L198 610H111L105 589Z" fill="#E8B39C"/>
+<path d="M145 594L157 388" stroke="#8B1E3F" stroke-width="12" stroke-linecap="round"/>
+<path d="M155 455C85 444 69 390 79 346C128 359 167 399 155 455Z" fill="#D9859A"/>
+<path d="M157 414C190 349 241 344 273 360C254 415 205 440 157 414Z" fill="#F2B8C8"/>
+<path d="M151 506C93 504 57 466 55 431C109 431 149 461 151 506Z" fill="#B5405A"/>
+<path d="M150 389C142 335 166 289 205 270C223 326 196 368 150 389Z" fill="#E9A4B6"/>
+<path d="M105 589H204L190 690H119L105 589Z" fill="#C98776"/>
+<path d="M105 589H204L198 610H111L105 589Z" fill="#E4B0A0"/>
 <!-- notebook -->
 <g transform="rotate(-7 360 735)">
  <rect x="205" y="598" width="330" height="260" rx="18" fill="#A5BDB2" opacity=".35"/>
@@ -47,7 +47,7 @@
 <path d="M284 872L460 832" stroke="#C77F68" stroke-width="12" stroke-linecap="round"/>
 <path d="M454 833L474 829L462 846Z" fill="#D9B47E"/>
 <path d="M1015 567C1057 526 1102 541 1119 569C1081 597 1046 594 1015 567Z" fill="#A8CDB9"/>
-<path d="M1015 567L1108 555" stroke="#6E9D83" stroke-width="4" stroke-linecap="round"/>
+<path d="M1015 567L1108 555" stroke="#B5405A" stroke-width="4" stroke-linecap="round"/>
 <circle cx="1038" cy="468" r="7" fill="#D58F78"/><circle cx="1064" cy="445" r="4" fill="#8EB6A3"/><circle cx="1092" cy="480" r="6" fill="#8DAFCB"/>
 <text x="600" y="934" fill="#496D67" font-family="Arial,sans-serif" font-size="22" letter-spacing="6" text-anchor="middle">MAKE SPACE. MAKE IT STAY.</text>
 </svg>
