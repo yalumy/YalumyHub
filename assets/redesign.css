@@ -271,3 +271,10 @@ body::before{
 body.dark .hero-image-panel{
  background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.06)),url("images/hero/study-workspace.svg")!important;
 }
+
+/* Theme-aware brand marks */
+.brand-mark-dark{display:none}
+body.dark .brand-mark-light{display:none}
+body.dark .brand-mark-dark{display:inline-block}
+.hero-brandline img.brand-mark-light,.hero-brandline img.brand-mark-dark{width:min(235px,72%);height:auto;max-height:62px;object-fit:contain;object-position:left center}
+body.dark .new-footer .brand img{filter:none}
