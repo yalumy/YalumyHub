@@ -163,3 +163,266 @@ a,button,.card,.content-card,.resource-card,.portal-card,.course-feature,.dock,.
 }
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(214,45,88,.48);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){body{animation:none}*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* YalumyHub signature pattern — cherry blossom + open book, light/dark aware */
+:root{
+ --yh-cherry:#8b1e3f;--yh-rose:#b5405a;--yh-blush:#fadadd;--yh-cream:#fff7f3;
+ --yh-burgundy:#2c0f17;--yh-slate:#6b7280;--yh-gold:#d4a373;
+ --yh-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23b5405a' stroke-opacity='.13' stroke-width='1.2'%3E%3Cpath d='M18 46c12-18 25-19 35-3-12 5-23 7-35 3zm11 0c-2 13 0 22 8 30M128 121c11-15 22-15 31-2-10 4-20 5-31 2zm8 0c-1 11 1 18 7 24'/%3E%3Cpath d='M64 130q17-13 34 0v18q-17-13-34 0z M81 130v18'/%3E%3C/g%3E%3Cg fill='%23b5405a' fill-opacity='.13'%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(0 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(72 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(144 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(216 105 42)'/%3E%3Cellipse cx='105' cy='42' rx='7' ry='13' transform='rotate(288 105 42)'/%3E%3Ccircle cx='105' cy='42' r='4' fill='%23d4a373' fill-opacity='.45'/%3E%3C/g%3E%3Ctext x='24' y='112' fill='%238b1e3f' fill-opacity='.11' font-family='Georgia,serif' font-size='21' font-weight='bold'%3EYH%3C/text%3E%3C/svg%3E");
+}
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.9;
+ background-image:var(--yh-pattern);background-size:180px 180px;
+}
+body:not(.dark){--paper:#fff7f3;--ink:#2c0f17;--muted:#76565f;--primary:#8b1e3f;--primary-soft:#fadadd}
+body.dark{--paper:#1a0c11;--ink:#fff0f2;--muted:#c6a0aa;--primary:#f29ab0;--primary-soft:#3c1825}
+body.dark::before{filter:brightness(1.8) saturate(.85);opacity:.34}
+body:not(.dark) .hero-content-panel{background:linear-gradient(145deg,#fff0f2 0%,#fffaf8 65%,#fff0e9 100%)!important}
+body:not(.dark) .berry-button,body:not(.dark) .btn-primary,body:not(.dark) .primary-action{background:linear-gradient(135deg,#b5405a,#8b1e3f)!important;color:#fff!important}
+body:not(.dark) .dock-links a.active,body:not(.dark) .dock-links a:hover{background:#fadadd!important;color:#8b1e3f!important}
+body:not(.dark) .plum-card,body:not(.dark) .lavender-card{background:linear-gradient(145deg,#fadadd,#fffaf8)!important}
+body:not(.dark) .cream-card,body:not(.dark) .moss-card{background:linear-gradient(145deg,#fff0e5,#fffaf8)!important}
+body:not(.dark) .podcast-card{background:linear-gradient(145deg,#f9dce4,#fffaf6)!important}
+body.dark .editorial-hero,body.dark .hero-content-panel,body.dark .space-card,body.dark .podcast-hero,body.dark .podcast-panel,body.dark .feature-panel{background:linear-gradient(145deg,#2c111b,#1c0e14)!important;color:#fff0f2!important}
+body.dark .dock{background:rgba(35,15,23,.94)!important;border-color:rgba(242,154,176,.2)!important}
+body.dark .dock-links a.active,body.dark .dock-links a:hover{background:#48202e!important;color:#fff0f2!important}
+body.dark .hero-content-panel h1 em,body.dark .hero-kicker,body.dark .section-index{color:#f29ab0!important}
+.dock-icon,.space-symbol{color:var(--primary)!important}
+
+
+/* Consistent card system and accessible theme-aware pattern across all pages */
+body::before{
+ position:fixed!important;inset:0!important;pointer-events:none!important;
+ z-index:0!important;opacity:.19!important;background-image:var(--yh-pattern)!important;
+ background-size:190px 190px!important;background-repeat:repeat!important;
+}
+body>*:not(.dock):not(.universal-dock):not(.yalumy-language-toggle){position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+body.dark::before{opacity:.12!important;filter:brightness(1.7) saturate(.8)}
+body:not(.dark) .course-card,body:not(.dark) .lesson-card,body:not(.dark) .activity-card,
+body:not(.dark) .resource-card,body:not(.dark) .portal-card,body:not(.dark) .content-card,
+body:not(.dark) .memory-card,body:not(.dark) .review-card,body:not(.dark) .tool-card{
+ background:rgba(255,253,251,.92)!important;border:1px solid rgba(139,30,63,.13)!important;
+ box-shadow:0 12px 34px rgba(90,24,44,.065)!important;border-radius:22px!important;
+}
+body:not(.dark) .course-card:hover,body:not(.dark) .lesson-card:hover,body:not(.dark) .activity-card:hover,
+body:not(.dark) .resource-card:hover,body:not(.dark) .portal-card:hover,body:not(.dark) .content-card:hover{
+ border-color:rgba(139,30,63,.28)!important;box-shadow:0 18px 42px rgba(90,24,44,.10)!important;
+}
+body.dark .course-card,body.dark .lesson-card,body.dark .activity-card,body.dark .resource-card,
+body.dark .portal-card,body.dark .content-card,body.dark .memory-card,body.dark .review-card,body.dark .tool-card{
+ background:rgba(44,17,27,.94)!important;border:1px solid rgba(242,154,176,.16)!important;
+ box-shadow:0 14px 36px rgba(0,0,0,.18)!important;color:#fff0f2!important;
+}
+body.dark input,body.dark textarea,body.dark select{
+ background:#2b1720!important;color:#fff0f2!important;border-color:rgba(242,154,176,.25)!important;
+}
+body.dark input::placeholder,body.dark textarea::placeholder{color:#c6a0aa!important}
+body img{max-width:100%}
+body a:focus-visible,body button:focus-visible,body input:focus-visible,body select:focus-visible{
+ outline:3px solid rgba(181,64,90,.55)!important;outline-offset:3px!important
+}
+@media(max-width:760px){
+ body::before{background-size:150px 150px!important;opacity:.12!important}
+}
+
+
+/* Final image placement pass: use the existing locally hosted Yalumy illustration */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.12),rgba(63,12,28,0) 58%),url("images/study-workspace-hero.svg")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body:not(.dark) .hero-image-panel{background-color:#f7dfe5!important}
+body.dark .hero-image-panel{background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.06)),url("images/study-workspace-hero.svg")!important}
+.space-card{isolation:isolate}
+.space-card::after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;
+ background-image:url("images/study-workspace-hero.svg");background-size:cover;background-position:center;
+ mask-image:linear-gradient(135deg,#000,transparent 78%);
+}
+body.dark .space-card::after{opacity:.08}
+.hero-image-label{background:rgba(80,13,34,.66)!important;border:1px solid rgba(255,255,255,.34);padding:10px 14px;border-radius:14px;backdrop-filter:blur(12px)}
+/* Low-noise floral signature texture across all content */
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0!important;opacity:.17;
+ background-image:var(--yh-pattern);background-size:190px 190px;background-repeat:repeat;
+}
+body.dark::before{opacity:.1;filter:brightness(1.6) saturate(.8)}
+body>*:not(.dock):not(.universal-dock):not(.yalumy-language-toggle){position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+@media(max-width:760px){body::before{background-size:150px 150px;opacity:.1}}
+
+
+/* Use the real, separately stored brand pattern and hero asset */
+:root{--yh-pattern:url("patterns/yalumy-light.svg")}
+body.dark{--yh-pattern:url("patterns/yalumy-dark.svg")}
+body::before{
+ background-image:var(--yh-pattern)!important;
+ background-size:240px 240px!important;
+ background-repeat:repeat!important;
+}
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.12),rgba(63,12,28,0) 58%),url("images/hero/study-workspace.svg")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body.dark .hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.06)),url("images/hero/study-workspace.svg")!important;
+}
+
+/* Theme-aware brand marks */
+.brand-mark-dark{display:none}
+body.dark .brand-mark-light{display:none}
+body.dark .brand-mark-dark{display:inline-block}
+.hero-brandline img.brand-mark-light,.hero-brandline img.brand-mark-dark{width:min(235px,72%);height:auto;max-height:62px;object-fit:contain;object-position:left center}
+body.dark .new-footer .brand img{filter:none}
+
+/* Content-specific artwork paths */
+.card-image-biology{background-image:url("images/courses/biology-lab.svg")}
+.card-image-homme{background-image:url("images/lessons/homme.svg")}
+.card-image-femme{background-image:url("images/lessons/femme.svg")}
+.card-image-podcast{background-image:url("images/podcast/podcast-studio.svg")}
+.card-image-focus{background-image:url("images/tools/focus-timer.svg")}
+.card-image-relax{background-image:url("images/tools/relax-breathing.svg")}
+.card-image-memory{background-image:url("images/tools/memory-map.svg")}
+.card-image-games{background-image:url("images/tools/educational-games.svg")}
+.card-image-story{background-image:url("images/brand/our-story.svg")}
+.brand-mark-dark{display:none}
+body.dark .brand-mark-light{display:none}
+body.dark .brand-mark-dark{display:inline-block}
+.hero-brandline img.brand-mark-light,.hero-brandline img.brand-mark-dark{width:min(235px,72%);height:auto;max-height:62px;object-fit:contain;object-position:left center}
+body.dark .new-footer .brand img{filter:none}
+
+/* Unique original artworks for the homepage feature cards */
+.space-card.card-image-memory::after{background-image:url("images/tools/memory-map.svg")}
+.space-card.card-image-focus::after{background-image:url("images/tools/focus-timer.svg")}
+.space-card.card-image-courses::after{background-image:url("images/courses/course-library.svg")}
+.space-card.card-image-podcast::after{background-image:url("images/podcast/podcast-studio.svg")}
+.space-card.card-image-relax::after{background-image:url("images/tools/relax-breathing.svg")}
+.space-card::after{background-size:cover!important;background-position:center!important;opacity:.19!important;mask-image:linear-gradient(135deg,#000,transparent 92%)!important}
+body.dark .space-card::after{opacity:.11!important}
+
+/* Distinct responsive lesson banners */
+.section-artwork{display:block;width:min(100%,520px);max-height:230px;object-fit:contain;object-position:left center;margin:12px 0 20px;border-radius:18px}
+body.dark .section-artwork{filter:saturate(.88) brightness(.9)}
+@media(max-width:600px){.section-artwork{max-height:165px;margin:8px 0 14px}}
+
+/* Page artwork — placed as a supporting visual without covering controls */
+.page-artwork{display:block;width:min(100%,280px);max-height:170px;object-fit:contain;object-position:center;opacity:.94;margin:0 auto 12px}
+.memory-page-artwork{width:min(100%,235px);max-height:130px;margin:0}
+.focus-body .setup-panel{position:relative}
+.focus-body .setup-panel>.page-artwork{float:right;width:140px;max-height:95px;margin:0 0 12px 18px;opacity:.82}
+.relax-intro>.page-artwork{float:right;width:170px;max-height:120px;margin:0 0 10px 18px}
+.memory-intro>.memory-page-artwork{align-self:center}
+@media(max-width:700px){
+ .page-artwork{max-width:200px;max-height:120px}
+ .focus-body .setup-panel>.page-artwork,.relax-intro>.page-artwork{float:none;width:128px;max-height:90px;margin:0 auto 10px}
+ .memory-page-artwork{width:145px;max-height:90px}
+}
+
+.space-symbol-icon{position:absolute;right:24px;top:53px;width:48px;height:48px;object-fit:contain;opacity:.9;filter:invert(14%) sepia(52%) saturate(3272%) hue-rotate(312deg) brightness(70%) contrast(112%)}
+body.dark .space-symbol-icon{filter:invert(83%) sepia(27%) saturate(1266%) hue-rotate(300deg) brightness(104%) contrast(98%);opacity:.95}
+.yalumy-icon-file{display:inline-block;width:28px;height:28px;object-fit:contain;vertical-align:middle;filter:invert(14%) sepia(52%) saturate(3272%) hue-rotate(312deg) brightness(70%) contrast(112%)}
+body.dark .yalumy-icon-file{filter:invert(83%) sepia(27%) saturate(1266%) hue-rotate(300deg) brightness(104%) contrast(98%)}
+
+/* Podcast page gets its own image treatment without replacing the real Mini Pod cover */
+.podcast-hero{
+ background-image:linear-gradient(100deg,rgba(255,247,243,.97) 0%,rgba(255,247,243,.92) 48%,rgba(255,247,243,.18) 100%),url("images/podcast/podcast-studio.svg")!important;
+ background-position:center,right center!important;background-size:cover,auto 100%!important;background-repeat:no-repeat!important;
+}
+body.dark .podcast-hero{
+ background-image:linear-gradient(100deg,rgba(26,12,17,.98) 0%,rgba(26,12,17,.88) 54%,rgba(26,12,17,.3) 100%),url("images/podcast/podcast-studio.svg")!important;
+}
+@media(max-width:700px){.podcast-hero{background-size:cover,auto 70%!important;background-position:center,right bottom!important}}
+
+/* Actual individual photographic crops, separate from the custom SVG illustrations */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(54,11,28,.22),rgba(54,11,28,.02) 58%),url("images/study-workspace-hero.jpg")!important;
+ background-position:center!important;background-size:cover!important;
+}
+body.dark .hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(26,12,17,.38),rgba(26,12,17,.12) 58%),url("images/study-workspace-hero.jpg")!important;
+}
+.course-category:nth-child(1) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.14),transparent),url("images/courses/biology-books-photo.webp")!important;
+}
+.course-category:nth-child(2) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.12),transparent),url("images/hero/study-desk-photo.webp")!important;
+}
+.course-category:nth-child(3) .category-image{
+ background-image:linear-gradient(0deg,rgba(70,12,31,.15),transparent),url("images/tools/educational-games-photo.webp")!important;
+}
+.space-card.card-image-focus::after{background-image:url("images/tools/focus-room-photo.webp")!important}
+.space-card.card-image-memory::after{background-image:url("images/tools/memory-map-photo.webp")!important}
+.space-card.card-image-podcast::after{background-image:url("images/podcast/podcast-studio-photo.webp")!important}
+.podcast-hero{
+ background-image:linear-gradient(100deg,rgba(255,247,243,.96) 0%,rgba(255,247,243,.88) 48%,rgba(255,247,243,.12) 100%),url("images/podcast/podcast-studio-photo.webp")!important;
+ background-size:cover,auto 100%!important;background-position:center,right center!important;background-repeat:no-repeat!important;
+}
+body.dark .podcast-hero{
+ background-image:linear-gradient(100deg,rgba(26,12,17,.98) 0%,rgba(26,12,17,.82) 54%,rgba(26,12,17,.25) 100%),url("images/podcast/podcast-studio-photo.webp")!important;
+}
+
+
+/* Brand asset integration: real SVG files, light/dark pattern switch */
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0!important;opacity:.19;
+ background-image:url("patterns/yalumy-light.svg");background-repeat:repeat;background-size:240px 240px;
+}
+body.dark::before{background-image:url("patterns/yalumy-dark.svg");opacity:.42}
+body>*:not(.dock):not(.universal-dock):not(.yalumy-language-toggle){position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+.dock-icon{display:inline-grid;place-items:center;width:25px;height:25px}
+.dock-icon-svg{width:22px;height:22px;object-fit:contain;color:var(--primary)}
+body.dark .dock-icon-svg{filter:brightness(1.25)}
+.page-artwork{display:block;width:min(260px,70%);max-height:175px;object-fit:contain;margin:16px 0 10px;border-radius:18px}
+body.dark .course-card,body.dark .lesson-card,body.dark .activity-card,body.dark .resource-card,body.dark .portal-card,body.dark .content-card,body.dark .memory-card,body.dark .review-card,body.dark .tool-card{background:rgba(44,17,27,.94)!important;border-color:rgba(242,154,176,.16)!important;color:#fff0f2!important}
+body.dark input,body.dark textarea,body.dark select{background:#2b1720!important;color:#fff0f2!important;border-color:rgba(242,154,176,.25)!important}
+body.dark input::placeholder,body.dark textarea::placeholder{color:#c6a0aa!important}
+@media(max-width:760px){body::before{background-size:170px 170px;opacity:.12}body.dark::before{opacity:.23}}
+
+/* Use dedicated standalone Yalumy artwork assets */
+.hero-image-panel{background-image:linear-gradient(0deg,rgba(63,12,28,.12),rgba(63,12,28,0) 58%),url("images/hero/study-desk-photo.webp")!important;background-size:cover!important;background-position:center!important}
+body.dark .hero-image-panel{background-image:linear-gradient(0deg,rgba(24,6,13,.3),rgba(24,6,13,.04)),url("images/hero/study-desk-photo.webp")!important}
+body .page-artwork{display:block;width:min(300px,80%);max-height:185px;object-fit:contain;margin:12px 0 18px;border-radius:18px}
+body .dock-icon-svg{display:block;width:22px;height:22px;object-fit:contain;color:var(--primary)}
+body.dark .dock-icon-svg{filter:brightness(1.25)}
+body:not(.dark) .editorial-hero{background:var(--surface-solid)}
+body.dark .editorial-hero{background:#24121a!important}
+
+
+/* Real section-specific photos already stored in the repository */
+.hero-image-panel{
+ background-image:linear-gradient(0deg,rgba(63,12,28,.10),rgba(63,12,28,0) 58%),url("images/hero/study-desk-photo.webp")!important;
+ background-size:cover!important;background-position:center 54%!important;
+}
+body.dark .hero-image-panel{background-image:linear-gradient(0deg,rgba(24,6,13,.28),rgba(24,6,13,.04)),url("images/hero/study-desk-photo.webp")!important}
+body.unified-page:not(.home-page) .hero:not(.editorial-hero){
+ background:linear-gradient(120deg,rgba(255,247,243,.96),rgba(255,247,243,.86))!important;
+}
+body.unified-page:not(.home-page).dark .hero:not(.editorial-hero){
+ background:linear-gradient(120deg,rgba(26,12,17,.97),rgba(44,17,27,.91))!important;
+}
+body.unified-page .memory-intro{
+ background:linear-gradient(120deg,rgba(255,247,243,.97),rgba(255,247,243,.9))!important;
+}
+body.unified-page.dark .memory-intro{
+ background:linear-gradient(120deg,rgba(26,12,17,.97),rgba(44,17,27,.91))!important;
+}
+.space-card{position:relative;overflow:hidden;isolation:isolate}
+.space-card::after{
+ content:"";position:absolute;z-index:-1;pointer-events:none;right:0;top:0;width:48%;height:57%;
+ background-position:center;background-size:cover;background-repeat:no-repeat;opacity:.22;
+ border-radius:0 0 0 28px;mask-image:linear-gradient(135deg,#000 10%,transparent 100%);
+}
+.space-grid .space-card:nth-child(1)::after{background-image:url("images/tools/memory-map-photo.webp")}
+.space-grid .space-card:nth-child(2)::after{background-image:url("images/tools/focus-room-photo.webp")}
+.space-grid .space-card:nth-child(3)::after{background-image:url("images/courses/biology-books-photo.webp")}
+.space-grid .space-card:nth-child(4)::after{background-image:url("images/podcast/podcast-studio-photo.webp")}
+.space-grid .space-card:nth-child(5)::after{background-image:url("images/tools/relax-session-photo.webp")}
+body.dark .space-card::after{opacity:.15}
+.hero-brandline img.brand-wordmark{width:170px;height:auto;max-width:100%;object-fit:contain}
+@media(max-width:600px){.space-card::after{width:40%;height:48%;opacity:.14}}
