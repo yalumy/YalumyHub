@@ -364,3 +364,22 @@ body.dark .hero-image-panel{
 body.dark .podcast-hero{
  background-image:linear-gradient(100deg,rgba(26,12,17,.98) 0%,rgba(26,12,17,.82) 54%,rgba(26,12,17,.25) 100%),url("images/podcast/podcast-studio-photo.webp")!important;
 }
+
+
+/* Brand asset integration: real SVG files, light/dark pattern switch */
+body::before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0!important;opacity:.19;
+ background-image:url("patterns/yalumy-light.svg");background-repeat:repeat;background-size:240px 240px;
+}
+body.dark::before{background-image:url("patterns/yalumy-dark.svg");opacity:.42}
+body>*{position:relative;z-index:1}
+body .dock,body .universal-dock{z-index:1000}
+body .yalumy-language-toggle{z-index:1001}
+.dock-icon{display:inline-grid;place-items:center;width:25px;height:25px}
+.dock-icon-svg{width:22px;height:22px;object-fit:contain;color:var(--primary)}
+body.dark .dock-icon-svg{filter:brightness(1.25)}
+.page-artwork{display:block;width:min(260px,70%);max-height:175px;object-fit:contain;margin:16px 0 10px;border-radius:18px}
+body.dark .course-card,body.dark .lesson-card,body.dark .activity-card,body.dark .resource-card,body.dark .portal-card,body.dark .content-card,body.dark .memory-card,body.dark .review-card,body.dark .tool-card{background:rgba(44,17,27,.94)!important;border-color:rgba(242,154,176,.16)!important;color:#fff0f2!important}
+body.dark input,body.dark textarea,body.dark select{background:#2b1720!important;color:#fff0f2!important;border-color:rgba(242,154,176,.25)!important}
+body.dark input::placeholder,body.dark textarea::placeholder{color:#c6a0aa!important}
+@media(max-width:760px){body::before{background-size:170px 170px;opacity:.12}body.dark::before{opacity:.23}}
