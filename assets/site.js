@@ -15,11 +15,12 @@ document.body.classList.add("unified-page");
 if (!document.getElementById("floatingDock")) {
   const pagePath = window.location.pathname;
   const root = pagePath.endsWith("/YalumyHub/") || pagePath === "/" ? "" : "../";
-  const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("podcast") ? "podcast" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
+  const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("podcast") ? "podcast" : pagePath.includes("/shop") ? "shop" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
   const items = [
     ["home", `${root}index.html`, "⌂", "Home"],
     ["memory", `${root}memory-map/index.html`, "◎", "Memory Map"],
     ["courses", `${root}courses/index.html`, "▱", "Courses"],
+    ["shop", `${root}shop/index.html`, "♡", "Shop"],
     ["podcast", `${root}podcast/index.html`, "♫", "Podcast"],
     ["focus", `${root}focus/index.html`, "◷", "Focus"],
     ["breathe", `${root}relax/index.html`, "◌", "Breathe"],
@@ -42,8 +43,8 @@ if (!document.getElementById("floatingDock")) {
 const languageKey = "yalumy-language";
 let currentLanguage = localStorage.getItem(languageKey) || "en";
 const languageLabels = {
-  en: {home:"Home",memory:"Memory Map",courses:"Courses",podcast:"Podcast",focus:"Focus",breathe:"Breathe",story:"Our Story",switch:"العربية"},
-  ar: {home:"الرئيسية",memory:"خريطة الذاكرة",courses:"الدروس",podcast:"البودكاست",focus:"التركيز",breathe:"الاسترخاء",story:"قصتنا",switch:"English"}
+  en: {home:"Home",memory:"Memory Map",courses:"Courses",podcast:"Podcast",focus:"Focus",breathe:"Breathe",story:"Our Story",shop:"Shop",switch:"العربية"},
+  ar: {home:"الرئيسية",memory:"خريطة الذاكرة",courses:"الدروس",podcast:"البودكاست",focus:"التركيز",breathe:"الاسترخاء",story:"قصتنا",shop:"المتجر",switch:"English"}
 };
 function applyYalumyLanguage(language) {
   currentLanguage = language;
@@ -52,7 +53,7 @@ function applyYalumyLanguage(language) {
   document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
   const labels = languageLabels[language];
   const dockItems = document.querySelectorAll("#floatingDock .dock-links a");
-  const keys = ["home","memory","courses","podcast","focus","breathe","story"];
+  const keys = ["home","memory","courses","shop","podcast","focus","breathe","story"];
   dockItems.forEach((link,index) => {
     const span = link.querySelector("span:last-child");
     if (span && keys[index]) span.textContent = labels[keys[index]];
