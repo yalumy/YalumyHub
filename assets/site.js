@@ -170,19 +170,19 @@ document.head.appendChild(languageStyle);
   new MutationObserver(updateMarkTheme).observe(document.body,{attributes:true,attributeFilter:["class"]});
   let artwork="";
   let artworkAlt="";
-  if(/^index\\.html$/.test(sitePath)||sitePath===""){artwork="assets/images/hero/study-desk-photo.webp";artworkAlt="A calm study desk with books and a notebook";}
-  else if(/^the-owner\\/index\\.html$/.test(sitePath)){artwork="assets/images/story/yalumy-story.svg";artworkAlt="A blossom and open book symbolizing learning and growth";}
-  else if(/^courses\\/(?:index\\.html|svt-bac-sciences-experimentales\\.html)$/.test(sitePath)){artwork="assets/images/courses/biology-books-photo.webp";artworkAlt="Biology books arranged for a study session";}
-  else if(/^lessons\\/reproduction-homme\\.html$/.test(sitePath)){artwork="assets/images/lessons/homme-photo.webp";artworkAlt="Educational illustration for the lesson on male reproduction";}
-  else if(/^lessons\\/reproduction-femme\\.html$/.test(sitePath)){artwork="assets/images/lessons/femme.svg";artworkAlt="Educational diagram for the lesson on female reproduction";}
-  else if(/^lessons\\/9bal-el-bac\\.html$/.test(sitePath)){artwork="assets/images/courses/biology-lab.svg";artworkAlt="Biology learning resources";}
-  else if(/^podcast\\/(?:index\\.html|mini-pod\\/index\\.html)$/.test(sitePath)){artwork="assets/images/podcast/podcast-studio-photo.webp";artworkAlt="A warm podcast recording desk with headphones and microphone";}
-  else if(/^focus\\/index\\.html$/.test(sitePath)){artwork="assets/images/tools/focus-room-photo.webp";artworkAlt="A quiet focused study workspace";}
-  else if(/^relax\\/index\\.html$/.test(sitePath)){artwork="assets/images/tools/relax-session-photo.webp";artworkAlt="A calm, softly lit relaxation space";}
-  else if(/^memory-map\\/index\\.html$/.test(sitePath)){artwork="assets/images/tools/memory-map-photo.webp";artworkAlt="Study notes arranged as a visual memory map";}
-  else if(/^games\\/(?:homme-quiz|homme-match)\\.html$/.test(sitePath)){artwork="assets/images/lessons/homme-photo.webp";artworkAlt="Visual resource for the male reproduction learning games";}
-  else if(/^games\\/(?:femme-quiz|femme-match)\\.html$/.test(sitePath)){artwork="assets/images/lessons/femme.svg";artworkAlt="Visual resource for the female reproduction learning games";}
-  else if(/^games\\/(?:9bal-el-bac-quiz|9bal-el-bac-match)\\.html$/.test(sitePath)){artwork="assets/images/tools/educational-games-photo.webp";artworkAlt="An inviting desk for educational games and practice";}
+  if(/^index\.html$/.test(sitePath)||sitePath===""){artwork="assets/images/hero/study-desk-photo.webp";artworkAlt="A calm study desk with books and a notebook";}
+  else if(/^the-owner\/index\.html$/.test(sitePath)){artwork="assets/images/story/yalumy-story.svg";artworkAlt="A blossom and open book symbolizing learning and growth";}
+  else if(/^courses\/(?:index\.html|svt-bac-sciences-experimentales\.html)$/.test(sitePath)){artwork="assets/images/courses/biology-books-photo.webp";artworkAlt="Biology books arranged for a study session";}
+  else if(/^lessons\/reproduction-homme\.html$/.test(sitePath)){artwork="assets/images/lessons/homme-photo.webp";artworkAlt="Educational illustration for the lesson on male reproduction";}
+  else if(/^lessons\/reproduction-femme\.html$/.test(sitePath)){artwork="assets/images/lessons/femme.svg";artworkAlt="Educational diagram for the lesson on female reproduction";}
+  else if(/^lessons\/9bal-el-bac\.html$/.test(sitePath)){artwork="assets/images/courses/biology-lab.svg";artworkAlt="Biology learning resources";}
+  else if(/^podcast\/(?:index\.html|mini-pod\/index\.html)$/.test(sitePath)){artwork="assets/images/podcast/podcast-studio-photo.webp";artworkAlt="A warm podcast recording desk with headphones and microphone";}
+  else if(/^focus\/index\.html$/.test(sitePath)){artwork="assets/images/tools/focus-room-photo.webp";artworkAlt="A quiet focused study workspace";}
+  else if(/^relax\/index\.html$/.test(sitePath)){artwork="assets/images/tools/relax-session-photo.webp";artworkAlt="A calm, softly lit relaxation space";}
+  else if(/^memory-map\/index\.html$/.test(sitePath)){artwork="assets/images/tools/memory-map-photo.webp";artworkAlt="Study notes arranged as a visual memory map";}
+  else if(/^games\/(?:homme-quiz|homme-match)\.html$/.test(sitePath)){artwork="assets/images/lessons/homme-photo.webp";artworkAlt="Visual resource for the male reproduction learning games";}
+  else if(/^games\/(?:femme-quiz|femme-match)\.html$/.test(sitePath)){artwork="assets/images/lessons/femme.svg";artworkAlt="Visual resource for the female reproduction learning games";}
+  else if(/^games\/(?:9bal-el-bac-quiz|9bal-el-bac-match)\.html$/.test(sitePath)){artwork="assets/images/tools/educational-games-photo.webp";artworkAlt="An inviting desk for educational games and practice";}
   if(artwork&&!document.querySelector(".page-artwork")){
     const hero=document.querySelector("main .hero, main .page-hero, main .podcast-hero, main .memory-intro, .focus-intro, .relax-intro, body > .container .hero");
     if(hero){const img=document.createElement("img");img.className="page-artwork";img.src=prefix+artwork;img.alt=artworkAlt;hero.prepend(img);}
