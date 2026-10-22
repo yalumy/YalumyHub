@@ -22,14 +22,14 @@ if (!document.getElementById("floatingDock")) {
   const root = depth === 0 ? "" : "../".repeat(depth);
   const active = pagePath.includes("memory-map") ? "memory" : pagePath.includes("podcast") ? "podcast" : pagePath.includes("/shop") ? "shop" : pagePath.includes("courses") || pagePath.includes("lessons") || pagePath.includes("games") || pagePath.includes("flashcards") ? "courses" : pagePath.includes("focus") ? "focus" : pagePath.includes("relax") ? "breathe" : pagePath.includes("the-owner") ? "story" : "home";
   const items = [
-    ["home", `${root}index.html`, "⌂", "Home"],
-    ["memory", `${root}memory-map/index.html`, "◎", "Memory Map"],
-    ["courses", `${root}courses/index.html`, "▱", "Courses"],
-    ["shop", `${root}shop/index.html`, "♡", "Shop"],
-    ["podcast", `${root}podcast/index.html`, "♫", "Podcast"],
-    ["focus", `${root}focus/index.html`, "◷", "Focus"],
-    ["breathe", `${root}relax/index.html`, "◌", "Breathe"],
-    ["story", `${root}the-owner/index.html`, "✦", "Story"]
+    ["home", `${root}index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>', "Home"],
+    ["memory", `${root}memory-map/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4a3 3 0 0 0-5 2 3 3 0 0 0-1 5 3 3 0 0 0 2 5 3 3 0 0 0 4 4l3-2V5zM15 4a3 3 0 0 1 5 2 3 3 0 0 1 1 5 3 3 0 0 1-2 5 3 3 0 0 1-4 4l-3-2V5z"/></svg>', "Memory Map"],
+    ["courses", `${root}courses/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 1 4 17.5zM4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 6h8M8 9h8"/></svg>', "Courses"],
+    ["shop", `${root}shop/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1 13H5L4 8zM9 8a3 3 0 0 1 6 0"/></svg>', "Shop"],
+    ["podcast", `${root}podcast/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3m-4 0h8"/></svg>', "Podcast"],
+    ["focus", `${root}focus/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>', "Focus"],
+    ["breathe", `${root}relax/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7 18 4 14 5 9c1-4 5-5 7-1 2-4 6-3 7 1 1 5-2 9-7 12zM12 8v9"/></svg>', "Breathe"],
+    ["story", `${root}the-owner/index.html`, '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0m0-4a5 5 0 0 1 6 4"/></svg>', "Story"]
   ];
   const shell = document.createElement("aside");
   shell.className = "dock universal-dock";
@@ -123,3 +123,7 @@ languageStyle.textContent = `
 @media(max-width:760px){.yalumy-language-toggle{right:12px;bottom:12px;padding:9px 13px}.arabic-interface .yalumy-language-toggle{left:12px;right:auto}}
 `;
 document.head.appendChild(languageStyle);
+
+
+/* Consistent line icons in the shared navigation */
+document.querySelectorAll(".dock-icon svg").forEach(icon => { icon.style.width = "19px"; icon.style.height = "19px"; });
