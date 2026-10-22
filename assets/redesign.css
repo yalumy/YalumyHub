@@ -192,3 +192,40 @@ body.dark::before,body.dark::after{display:none!important;background:none!import
 body.dark .editorial-hero,body.dark .hero-content-panel,body.dark .space-card,body.dark .closing-panel{background:#2a2022!important;border-color:var(--border)!important}
 body.dark .dock{background:#2a2022!important}
 @media(max-width:760px){.editorial-hero{border-radius:18px}.hero-image-panel{min-height:280px}.dock-grip{display:none!important}}
+
+
+/* FINAL OVERRIDE — YalumyHub burgundy/cherry palette */
+:root{
+ --paper:#fff8f4!important;--ink:#3a2025!important;--muted:#78666a!important;
+ --surface:#fffdfb!important;--surface-solid:#fffdfb!important;
+ --border:rgba(91,18,35,.14)!important;--shadow:0 10px 30px rgba(58,20,31,.07)!important;
+ --primary:#6f1027!important;--primary-soft:#f4e5e8!important;
+ --sage:#9f5366!important;--olive:#6f1027!important;--moss:#b56b7b!important;
+ --coral:#b5405a!important;--blush:#f3dfe4!important;--cream:#fff1e9!important;--text:#3a2025!important
+}
+body{background:#fff8f4!important;color:#3a2025!important}
+body::before,body::after{display:none!important;background:none!important;content:none!important}
+body.dark{
+ --paper:#3a2b2d!important;--ink:#fff4f0!important;--muted:#d0bfc1!important;
+ --surface:#443235!important;--surface-solid:#2a2022!important;
+ --border:rgba(255,232,230,.13)!important;--shadow:0 12px 34px rgba(20,8,10,.2)!important;
+ --primary:#f0b8c4!important;--primary-soft:#4a3035!important;
+ --sage:#d58a9a!important;--olive:#f0b8c4!important;--moss:#9d5363!important;
+ --coral:#e49aaa!important;--blush:#4a3035!important;--cream:#2a2022!important;--text:#fff4f0!important
+}
+body.dark,body.dark .home-main{background:#3a2b2d!important;color:#fff4f0!important}
+body.dark::before,body.dark::after{display:none!important;background:none!important;content:none!important}
+body.dark .dock,body .dock{background:var(--surface-solid)!important;border-color:var(--border)!important;box-shadow:0 8px 24px rgba(58,20,31,.08)!important;backdrop-filter:none!important}
+.dock-links a.active,.dock-links a:hover{background:var(--primary-soft)!important;color:var(--primary)!important}
+.editorial-hero{background:var(--surface-solid)!important;border-color:var(--border)!important;box-shadow:var(--shadow)!important;border-radius:22px!important}
+.hero-content-panel{background:var(--surface-solid)!important}
+.hero-kicker,.section-index{color:var(--primary)!important}
+.hero-content-panel h1 em{color:var(--coral)!important}
+.btn.berry-button{background:#6f1027!important;color:#fff8f4!important;box-shadow:none!important}
+.btn.cream-button{background:var(--surface-solid)!important;color:var(--primary)!important;border:1px solid var(--border)!important}
+.space-card,.closing-panel{box-shadow:none!important;border:1px solid var(--border)!important;border-radius:18px!important;background:var(--surface-solid)!important}
+.space-card:before,.space-card:after,.closing-panel:before,.closing-panel:after{display:none!important;content:none!important}
+.plum-card,.lavender-card,.cream-card,.podcast-card,.moss-card{background:var(--surface-solid)!important;color:var(--ink)!important}
+.space-card h3,.space-card p,.space-card .card-topline,.space-card .space-action{color:inherit!important}
+.dock-icon svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){.editorial-hero{border-radius:18px!important}.hero-image-panel{min-height:280px}}
